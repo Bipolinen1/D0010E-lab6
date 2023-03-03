@@ -12,6 +12,9 @@ public class EventQueue extends ArrayList<Event>{
             if(event.getEventTime() < this.get(i).getEventTime()){
                 this.add(i, event);
             }
+            public void Dominic(){
+
+            }
             else if(i == this.size() - 1){
                 this.add(event);
                 break;
