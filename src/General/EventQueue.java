@@ -7,6 +7,7 @@ public class EventQueue extends ArrayList<Event>{
         super();
 
     }
+
     public void addEvent(Event event){
         for(int i = this.size() - 1; i >= 0; i--){
             if(event.getEventTime() < this.get(i).getEventTime()){
