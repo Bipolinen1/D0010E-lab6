@@ -5,4 +5,7 @@ public abstract class Event {
     protected EventQueue eventQueue;
     protected State state;
     public abstract void execute();
+    public double getEventTime(){
+        return this.eventTime;
+    }
 }
