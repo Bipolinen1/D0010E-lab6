@@ -12,8 +12,11 @@ public class EventQueue extends ArrayList<Event>{
             if(event.getEventTime() < this.get(i).getEventTime()){
                 this.add(i, event);
             }
-            else{
+            else if(i == this.size() - 1){
                 this.add(event);
+                break;
+            }
+            else{
                 break;
             }
         }
