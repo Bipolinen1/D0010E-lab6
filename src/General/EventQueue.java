@@ -24,5 +24,11 @@ public class EventQueue extends ArrayList<Event>{
         }
     }
 
+    public Event getNextEvent(){
+         Event event = this.get(0);
+         this.remove(0);
+         return event;
+    }
+
 
 }
