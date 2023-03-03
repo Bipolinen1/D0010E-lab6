@@ -1,4 +1,4 @@
-package Supermarket;
+package Supermarket.States;
 
 import General.State;
 

@@ -1,4 +1,4 @@
-package Supermarket;
+package Supermarket.Events;
 
 import General.Event;
 
