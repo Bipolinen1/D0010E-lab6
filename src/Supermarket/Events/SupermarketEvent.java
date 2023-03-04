@@ -2,10 +2,10 @@ package Supermarket.Events;
 
 import General.Event;
 
-public class SupermarketEvent extends Event {
+public abstract class SupermarketEvent extends Event {
 
     @Override
-    public void execute() {
+    public abstract void execute();
 
-    }
+
 }
