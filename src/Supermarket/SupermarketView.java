@@ -1,4 +1,9 @@
 package Supermarket;
 
-public class SupermarketView {
+import General.View;
+
+public class SupermarketView extends View{
+    public  SupermarketView(){
+        super();
+    }
 }
