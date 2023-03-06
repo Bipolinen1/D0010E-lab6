@@ -18,6 +18,9 @@ public class State extends Observable{
         }
         currentTime = time;
     }
+    public boolean isStopped(){
+        return stopped;
+    }
 
     public void stop(){
         stopped = true;
