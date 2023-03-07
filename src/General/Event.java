@@ -10,6 +10,6 @@ public abstract class Event {
     }
     public abstract void execute();
     public double getEventTime(){
-        return this.eventTime;
+        return this.eventTime; // Test Ossian
     }
 }
