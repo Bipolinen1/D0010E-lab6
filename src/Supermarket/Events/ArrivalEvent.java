@@ -13,16 +13,16 @@ public class ArrivalEvent extends CustomerEvent {
     public void execute() {
         // Todo Lägg till om stängt
         // Todo Fixa picktime istället för 0. Customer?
-        if(!state.isClosed()) {
-            if(state.getCustomersInStore() < state.getMaxCustomers()) {
-                eventQueue.add(new PickEvent(eventQueue, 0, customer));
-                if(!state.isClosed()){
-                    eventQueue.add(new ArrivalEvent(eventQueue, 0, state.createCustomer()));
-                }
+
+        if(state.getCustomersInStore() < state.getMaxCustomers()) {
+            eventQueue.add(new PickEvent(eventQueue, 0, customer));
+            if(!state.isClosed()){
+                eventQueue.add(new ArrivalEvent(eventQueue, 0, state.createCustomer()));
             }
-            else {
-                state.addMissedCustomer();
-            }
+        }
+        else {
+            state.addMissedCustomer();
+
         }
     }
 }
