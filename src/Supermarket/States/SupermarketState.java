@@ -8,6 +8,11 @@ public class SupermarketState extends State {
     final double openingTime;
     final double closingTime;
     final CustomerNumberGenerator customerNumberGenerator;
+
+    //TODO Avmarkera och lägg till i konstruktor när klasserna är färdiga
+    /*final ArrivalTime arrivalTime;
+    final PickTime pickTime;
+    final PayTime payTime;*/
     private int customersInStore = 0;
     private int customersInQueue = 0;
     private CheckoutQueue checkoutQueue;

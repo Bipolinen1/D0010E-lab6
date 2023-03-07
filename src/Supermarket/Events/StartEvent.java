@@ -7,7 +7,7 @@ import Supermarket.States.*;
 
 public class StartEvent extends SupermarketEvent{
 
-    public StartEvent(EventQueue eventQueue, double eventTime) {
+    public StartEvent(EventQueue eventQueue, double eventTime){
         super(eventQueue, eventTime);
     }
 
