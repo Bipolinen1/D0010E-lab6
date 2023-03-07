@@ -7,6 +7,7 @@ public class SupermarketState extends State {
     final int maxOpenRegisters;
     final double openingTime;
     final double closingTime;
+    final CustomerNumberGenerator customerNumberGenerator;
     private int customersInStore = 0;
     private int customersInQueue = 0;
     private CheckoutQueue checkoutQueue;
@@ -23,5 +24,9 @@ public class SupermarketState extends State {
         this.maxOpenRegisters = maxOpenRegisters;
         this.openingTime = openingTime;
         this.closingTime = closingTime;
+        customerNumberGenerator = new CustomerNumberGenerator();
+    }
+    public Customer createCustomer(){
+        return new Customer(customerNumberGenerator.getCurrentCustomerNumber());
     }
 }
