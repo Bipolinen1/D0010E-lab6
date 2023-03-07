@@ -16,6 +16,7 @@ public class SupermarketState extends State {
     private int openRegisters;
     private double unUsedRegisterTime = 0;
     private double totalQueueTime = 0;
+    private boolean closed;
 
 
     public SupermarketState(int maxCustomers, int maxOpenRegisters, double openingTime, double closingTime){
@@ -28,5 +29,30 @@ public class SupermarketState extends State {
     }
     public Customer createCustomer(){
         return new Customer(customerNumberGenerator.getCurrentCustomerNumber());
+    }
+    public int getMaxCustomers(){
+        return maxCustomers;
+    }
+
+    public int getCustomersInStore(){
+        return customersInStore;
+    }
+    public void addMissedCustomer(){
+        missedCustomers += 1;
+    }
+    public void addCustomerInStore(){
+        customersInStore += 1;
+    }
+
+    public void removeCustomerInStore(){
+        customersInStore -= 1;
+    }
+
+    public boolean isClosed(){
+        return closed;
+    }
+
+    public void close(){
+        closed = true;
     }
 }
