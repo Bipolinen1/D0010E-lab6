@@ -7,4 +7,7 @@ public class CheckoutQueue extends FIFO {
         super();
     }
 
+    public void addCustomer(Customer customer){
+        this.add(customer);
+    }
 }
