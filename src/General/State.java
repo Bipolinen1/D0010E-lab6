@@ -6,7 +6,8 @@ public class State extends Observable{
     private double currentTime;
     private boolean stopped;
 
-    public State(){}
+    public State(){
+    }
 
     public double getCurrentTime(){
         return currentTime;
