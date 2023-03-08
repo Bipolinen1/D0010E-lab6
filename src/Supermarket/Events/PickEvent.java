@@ -12,5 +12,6 @@ public class PickEvent extends CustomerEvent {
 
     public void execute(SupermarketState state) {
         super.execute(state);
+        state.update();
     }
 }

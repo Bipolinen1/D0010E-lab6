@@ -26,4 +26,9 @@ public class State extends Observable{
         stopped = true;
     }
 
+    //TODO Skriv en metod update som ändrar tid och meddelar observers
+    public void update(){
+
+        notifyObservers();
+    }
 }

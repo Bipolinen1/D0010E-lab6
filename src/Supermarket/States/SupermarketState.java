@@ -8,11 +8,9 @@ public class SupermarketState extends State {
     final double openingTime;
     final double closingTime;
     final CustomerNumberGenerator customerNumberGenerator;
-
-    //TODO Avmarkera och lägg till i konstruktor när klasserna är färdiga
     final ArrivalTime arrivalTime;
-    /*final PickTime pickTime;
-    final PayTime payTime;*/
+    final PickTime pickTime;
+    final PayTime payTime;
     private int customersInStore = 0;
     private int customersInQueue = 0;
     private CheckoutQueue checkoutQueue;
@@ -26,7 +24,7 @@ public class SupermarketState extends State {
     // Lambda är genomstnittliga antalet kunder på ett visst tidsintervall
     // Seed är ett tal som används vid slumpgenerering
     public SupermarketState(int maxCustomers, int maxOpenRegisters, double openingTime, double closingTime,
-                            double lambda, long seed){
+                            double lambda, long seed, double kMin, double kMax, double pMin, double pMax){
         super();
         this.maxCustomers = maxCustomers;
         this.maxOpenRegisters = maxOpenRegisters;
@@ -34,6 +32,10 @@ public class SupermarketState extends State {
         this.closingTime = closingTime;
         customerNumberGenerator = new CustomerNumberGenerator();
         arrivalTime = new ArrivalTime(lambda, seed);
+        //TODO kMin, kMax i PayTime
+        payTime = new PayTime();
+        //TODO pMin, pMax in i PickTime
+        pickTime = new PickTime();
     }
     public Customer createCustomer(){
         return new Customer(customerNumberGenerator.getCurrentCustomerNumber());

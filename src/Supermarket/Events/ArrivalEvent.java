@@ -21,6 +21,7 @@ public class ArrivalEvent extends CustomerEvent {
             if(!state.isClosed()){
                 eventQueue.add(new ArrivalEvent(eventQueue, state.getArrivalTime(), state.createCustomer()));
             }
+            state.update();
         }
         else {
             state.addMissedCustomer();
