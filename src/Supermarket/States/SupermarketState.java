@@ -49,6 +49,11 @@ public class SupermarketState extends State {
         customersInStore += 1;
     }
 
+    public void availableOpenRegister(int maxOpenRegisters){
+
+
+    }
+
     public void removeCustomerInStore(){
         customersInStore -= 1;
     }
