@@ -17,9 +17,9 @@ public class ArrivalEvent extends CustomerEvent {
         // Todo Fixa picktime istället för 0. Customer?
 
         if(state.getCustomersInStore() < state.getMaxCustomers()) {
-            eventQueue.add(new PickEvent(eventQueue, 0, customer));
+            eventQueue.add(new PickEvent(eventQueue, state.getArrivalTime(), customer));
             if(!state.isClosed()){
-                eventQueue.add(new ArrivalEvent(eventQueue, 0, state.createCustomer()));
+                eventQueue.add(new ArrivalEvent(eventQueue, state.getArrivalTime(), state.createCustomer()));
             }
         }
         else {
