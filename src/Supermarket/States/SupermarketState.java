@@ -33,7 +33,7 @@ public class SupermarketState extends State {
         customerNumberGenerator = new CustomerNumberGenerator();
         arrivalTime = new ArrivalTime(lambda, seed);
         //TODO kMin, kMax i PayTime
-        payTime = new PayTime();
+        payTime = new PayTime(kMax, kMin, seed); //FIXED
         pickTime = new PickTime(pMax, pMin, seed);
     }
     public Customer createCustomer(){

@@ -13,6 +13,7 @@ public class PickTime {
         rand = new UniformRandomStream(pMax, pMin, seed);
     }
     public double calculatePickTime(double currentTime){
-        return currentTime + rand.next();
+        return currentTime + rand.next(); //currentTime + rand.next() adds pMax, pMin and seed together
+                                        //and puts it in the variable current time
     }
 }
