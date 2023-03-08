@@ -12,6 +12,13 @@ public class PayEvent extends CustomerEvent {
 
     public void execute(SupermarketState state) {
         super.execute(state);
+        if(state.getUnUsedRegisters() > 0){
+            state.removeCustomerInStore();
+        }
+        else{
+            state.getCheckoutQueue().addCustomer(customer);
+            state.setCustomersInQueue();
+        }
         state.update();
     }
 }
