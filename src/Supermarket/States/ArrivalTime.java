@@ -1,5 +1,5 @@
 package Supermarket.States;
-
+import Supermarket.Main.RunSim;
 import Supermarket.Random.ExponentialRandomStream;
 
 public class ArrivalTime {
@@ -13,8 +13,9 @@ public class ArrivalTime {
         rand = new ExponentialRandomStream(lambda, seed);
     }
 
-    //TODO ska ge tid + rand tror jag, men vet inte var jag ska skapa currentTime
-    public double calculateArrivalTime(){
-        return 0;
+    // Räknar ut arrival tid som nuvarande tid + ett slumptal
+    public double calculateArrivalTime(double currentTime){
+        return currentTime + rand.next();
     }
+
 }

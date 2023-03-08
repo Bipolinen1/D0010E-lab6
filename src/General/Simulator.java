@@ -11,7 +11,7 @@ public class Simulator {
         while(!state.isStopped()){
             Event event = eventQueue.get(0);
             eventQueue.remove(0);
-            event.execute();
+            event.execute(state);
         }
     }
 

@@ -8,7 +8,9 @@ public abstract class Event {
     public Event(EventQueue eventQueue, double eventTime){
 
     }
-    public abstract void execute();
+    public  void execute(State state){
+
+    }
     public double getEventTime(){
         return this.eventTime;
     }

@@ -3,14 +3,17 @@ package Supermarket.Events;
 import General.State;
 import General.Event;
 import General.EventQueue;
+import Supermarket.States.SupermarketState;
 
-public class CloseEvent extends SupermarketEvent{
+public class CloseEvent extends Event{
     public CloseEvent(EventQueue eventQueue, double eventTime) {
         super(eventQueue, eventTime);
     }
 
-    @Override
-    public void execute() {
+
+    public void execute(SupermarketState state) {
+        super.execute(state);
         state.close();
+
     }
 }
