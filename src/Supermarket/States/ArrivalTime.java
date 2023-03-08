@@ -1,5 +1,4 @@
 package Supermarket.States;
-import Supermarket.Main.RunSim;
 import Supermarket.Random.ExponentialRandomStream;
 
 public class ArrivalTime {
