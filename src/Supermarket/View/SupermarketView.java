@@ -52,7 +52,7 @@ public class SupermarketView extends View{
         }
         System.out.print(state.getCurrentCustomerNumber() + "  ");
         System.out.print(state.isClosed() + "    ");
-        System.out.print(state.+ "    ");
+        System.out.print(state.getUnUsedRegistersTime() + "    ");
         System.out.print(state.getUnUsedRegisters() + "    ");
         System.out.print(state.getCustomersInStore()+ "    ");
         System.out.print(state.getPayedCustomers() + "    ");
