@@ -13,7 +13,7 @@ public class PayEvent extends CustomerEvent {
     public void execute(State state) {
         super.execute(state);
         ((SupermarketState)state).removeCustomerInStore();
-        ((SupermarketState)state).getUnUsedRegisters();
+        ((SupermarketState)state).addTotalCustomer();
 
         if(((SupermarketState)state).getCustomersInQueue() < 0){
             ((SupermarketState)state).getCheckoutQueue().removeFirst();

@@ -165,7 +165,9 @@ public class SupermarketState extends State {
         return unUsedRegisterTime;
     }
 
-
+    public void addTotalCustomer(){
+        this.totalCustomers += 1;
+    }
 
     public double getTimeOfQueuedCustomers(){
         return totalQueueTime;

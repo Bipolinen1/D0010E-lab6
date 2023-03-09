@@ -7,12 +7,13 @@ import Supermarket.States.SupermarketState;
 
 public abstract class CustomerEvent extends Event {
     protected Customer customer;
-    public CustomerEvent(EventQueue eventQueue, double eventTime, Customer customer, SupermarketState state) {
+    public CustomerEvent(EventQueue eventQueue, double eventTime, Customer customer, State state) {
         super(eventQueue, eventTime, state);
     }
 
 
     public void execute(State state){
+        System.out.println("customerEventTest");
         super.execute(state);
     }
 
