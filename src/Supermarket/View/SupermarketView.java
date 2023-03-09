@@ -3,6 +3,8 @@ package Supermarket.View;
 import General.View;
 import Supermarket.States.SupermarketState;
 
+import java.io.ObjectStreamClass;
+import java.io.ObjectStreamException;
 import java.util.Observable;
 
 public class SupermarketView extends View{
@@ -36,7 +38,7 @@ public class SupermarketView extends View{
         System.out.println(" Tid Händelse  Kund  ?  led   ledT   I   $   :-(   köat    köT   köar  [Kassakö..]");
         System.out.println(0.0 + " Start");
     }
-    private void writeState() {
+    private void writeState(Observable o, Object arg) {
         System.out.println(state.getCurrentTime() + " ");
         switch() {
             case "Ankomst":
@@ -48,19 +50,20 @@ public class SupermarketView extends View{
             case "Stänger":
                 System.out.print("Stänger      ");
         }
-        System.out.print(customerNumber + "  ");
-        System.out.print(openOrClosed + "    ");
+        System.out.print(state.getCurrentCustomerNumber() + "  ");
+        System.out.print(state.isClosed() + "    ");
         System.out.print(unusedRegisters + "    ");
         System.out.print(unusedRegistersTime + "    ");
-        System.out.print(currentCustomers + "    ");
-        System.out.print(customersThatPayed + "    ");
-        System.out.print(customersMissed + "     ");
-        System.out.print(customersThatQueued + "    ");
+        System.out.print(state.getCustomersInStore()+ "    ");
+        System.out.print(state.getPayedCustomers() + "    ");
+        System.out.print(state.getMissedCustomers() + "     ");
+        System.out.print(state.getcustomersThatQueued() + "    ");
         System.out.print(timeOfQueuedCustomers + "     ");
         System.out.print(currentlyQueuedCustomers + "  ");
         System.out.print(listOfQueuedCustomers);
     }
-    public void update() {
+    public void update(Observable o, Object arg) {
+        writeState(o, arg);
 
     }
 }
