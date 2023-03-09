@@ -4,9 +4,11 @@ import java.util.Observable;
 
 public class State extends Observable{
     private double currentTime;
-    private boolean stopped;
+    protected boolean stopped;
 
-    public State(){}
+    public State(){
+        this.stopped = false;
+    }
 
     public double getCurrentTime(){
         return currentTime;

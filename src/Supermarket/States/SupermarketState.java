@@ -20,6 +20,12 @@ public class SupermarketState extends State {
     private double totalQueueTime = 0;
     private int ChangedRegisters;
     private boolean closed;
+    private double lambda;
+    private long seed;
+    private double kMin;
+    private double kMax;
+    private double pMin;
+    private double pMax;
 
     // Lambda är genomstnittliga antalet kunder på ett visst tidsintervall
     // Seed är ett tal som används vid slumpgenerering
@@ -28,6 +34,12 @@ public class SupermarketState extends State {
         super();
         this.maxCustomers = maxCustomers;
         this.openRegisters = maxOpenRegisters;
+        this.lambda = lambda;
+        this.seed = seed;
+        this.kMin = kMin;
+        this.kMax = kMax;
+        this.pMin = pMin;
+        this.pMax = pMax;
         customerNumberGenerator = new CustomerNumberGenerator();
         arrivalTime = new ArrivalTime(lambda, seed);
         payTime = new PayTime(kMax, kMin, seed);
@@ -93,4 +105,27 @@ public class SupermarketState extends State {
         return checkoutQueue;
     }
 
+    public double getLambda(){
+        return lambda;
+    }
+
+    public long getSeed() {
+        return seed;
+    }
+
+    public double getkMin() {
+        return kMin;
+    }
+
+    public double getkMax() {
+        return kMax;
+    }
+
+    public double getpMin(){
+        return pMin;
+    }
+
+    public double getpMax() {
+        return pMax;
+    }
 }

@@ -13,18 +13,18 @@ public class SupermarketView extends View{
     private SupermarketState state;
     public  SupermarketView(SupermarketState state){
         super();
-        this.state = state
+        this.state = state;
     }
 
     private void writeParameters() {
         System.out.println("PARAMETRAR");
         System.out.println("==========");
         System.out.println("Antal kassor, N...........: " + state.getOpenRegisters());
-        System.out.println("Max som ryms, M..........: " + M);
-        System.out.println("Ankomshastighet, lambda..: 1.0" + lambda);
-        System.out.println("Plocktider, [P_min..Pmax]: [" + P_min + ".." + P_max + "]:");
-        System.out.println("Betaltider, [K_min..Kmax]: [" + K_min + ".." + K_max + "]:");
-        System.out.println("Frö, f...................: "+ f);
+        System.out.println("Max som ryms, M..........: " + state.getMaxCustomers());
+        System.out.println("Ankomshastighet, lambda..: 1.0" + );
+        System.out.println("Plocktider, [P_min..Pmax]: [" + state.getpMin() + ".." + state.getpMax() + "]:");
+        System.out.println("Betaltider, [K_min..Kmax]: [" + state.getkMin() + ".." + state.getkMax() + "]:");
+        System.out.println("Frö, f...................: "+ state.getSeed());
     }
 
     private void writeStart() {
@@ -32,10 +32,10 @@ public class SupermarketView extends View{
         System.out.println("=======");
         System.out.println("=======");
         System.out.println(" Tid Händelse  Kund  ?  led   ledT   I   $   :-(   köat    köT   köar  [Kassakö..]");
-        System.out.println(start + " Start");
+        System.out.println(0.0 + " Start");
     }
     private void writeState() {
-        System.out.println(time + " ");
+        System.out.println(state.getCurrentTime() + " ");
         switch(eventName) {
             case "Ankomst":
                 System.out.print("Ankomst      ");
