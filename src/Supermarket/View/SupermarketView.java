@@ -36,8 +36,7 @@ public class SupermarketView extends View{
     private void writeStart() {
         System.out.println("FÖRLOPP");
         System.out.println("=======");
-        System.out.println("=======");
-        System.out.println(" Tid Händelse  Kund  ?  led   ledT   I   $   :-(   köat    köT   köar  [Kassakö..]");
+        System.out.println("Tid Händelse  Kund  ?  led   ledT   I   $   :-(   köat    köT   köar  [Kassakö..]");
         System.out.println(0.0 + " Start");
     }
     private void writeState(Observable o, Object arg) {
