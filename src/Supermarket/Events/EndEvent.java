@@ -9,6 +9,7 @@ public class EndEvent extends Event {
         super(eventQueue, eventTime);
     }
     public void execute(SupermarketState state){
+        super.execute(state);
         state.stop();
     }
 }
