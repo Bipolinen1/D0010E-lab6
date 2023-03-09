@@ -128,4 +128,11 @@ public class SupermarketState extends State {
     public double getpMax() {
         return pMax;
     }
+
+    public double getUnUsedRegisterTime() {
+        return unUsedRegisterTime;
+    }
+    public int getunUsedRegister(){
+        return unUsedRegisters;
+    }
 }
