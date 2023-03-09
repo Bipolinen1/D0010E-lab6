@@ -34,7 +34,7 @@ public class SupermarketView extends View{
         System.out.println(" Tid Händelse  Kund  ?  led   ledT   I   $   :-(   köat    köT   köar  [Kassakö..]");
         System.out.println(start + " Start");
     }
-    private void update() {
+    private void writeState() {
         System.out.println(time + " ");
         switch(eventName) {
             case "Ankomst":
@@ -57,6 +57,9 @@ public class SupermarketView extends View{
         System.out.print(timeOfQueuedCustomers + "     ");
         System.out.print(currentlyQueuedCustomers + "  ");
         System.out.print(listOfQueuedCustomers);
-
+    }
+    public void update() {
+        setChanged();
+        notifyObservers();
     }
 }
