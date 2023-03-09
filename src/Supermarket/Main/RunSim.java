@@ -2,6 +2,7 @@ package Supermarket.Main;
 import General.EventQueue;
 import General.Simulator;
 import Supermarket.Events.CloseEvent;
+import Supermarket.Events.EndEvent;
 import Supermarket.Events.StartEvent;
 import Supermarket.States.SupermarketState;
 import Supermarket.View.SupermarketView;
@@ -18,6 +19,7 @@ public class RunSim {
         eventQueue = new EventQueue();
         eventQueue.add(new StartEvent(eventQueue, openingTime));
         eventQueue.add(new CloseEvent(eventQueue, closingTime));
+        eventQueue.add(new EndEvent(eventQueue, 999));
 
         state = new SupermarketState(
                 maxCustomers,

@@ -14,8 +14,6 @@ public class ArrivalEvent extends CustomerEvent {
 
     public void execute(SupermarketState state) {
         super.execute(state);
-        // Todo Fixa picktime istället för 0. Customer?
-
         if(state.getCustomersInStore() < state.getMaxCustomers()) {
             eventQueue.add(new PickEvent(eventQueue, state.getArrivalTime(), customer));
             state.addCustomerInStore();
