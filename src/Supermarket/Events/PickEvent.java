@@ -11,6 +11,9 @@ public class PickEvent extends CustomerEvent {
 
     public void execute(SupermarketState state) {
         super.execute(state);
+        state.getOpenRegisters();
+        state.ChangedRegisters(); //Skapade en metod som retunerar I SuperMarketState unUsedRegisters och minskar det med 1
         state.update();
+
     }
 }

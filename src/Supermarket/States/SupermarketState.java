@@ -4,9 +4,7 @@ import General.State;
 
 public class SupermarketState extends State {
     final int maxCustomers;
-    final int maxOpenRegisters;
-    final double openingTime;
-    final double closingTime;
+    final int openRegisters;
     final CustomerNumberGenerator customerNumberGenerator;
     final ArrivalTime arrivalTime;
     final PickTime pickTime;
@@ -16,27 +14,29 @@ public class SupermarketState extends State {
     private CheckoutQueue checkoutQueue;
     private int payedCustomers = 0;
     private int missedCustomers = 0;
-    private int openRegisters;
-    private int unUsedRegisters;
+    private int unUsedRegisters; //lediga kassor
+    private int UsedRegisters;  //upptagna kassor
     private double unUsedRegisterTime = 0;
     private double totalQueueTime = 0;
+    private int ChangedRegisters;
     private boolean closed;
 
     // Lambda är genomstnittliga antalet kunder på ett visst tidsintervall
     // Seed är ett tal som används vid slumpgenerering
-    public SupermarketState(int maxCustomers, int maxOpenRegisters, double openingTime, double closingTime,
-                            double lambda, long seed, double kMin, double kMax, double pMin, double pMax) {
+    public SupermarketState(int maxCustomers, int maxOpenRegisters, double lambda, long seed, double kMin,
+                            double kMax, double pMin, double pMax) {
         super();
         this.maxCustomers = maxCustomers;
-        this.maxOpenRegisters = maxOpenRegisters;
-        this.openingTime = openingTime;
-        this.closingTime = closingTime;
+        this.openRegisters = maxOpenRegisters;
         customerNumberGenerator = new CustomerNumberGenerator();
         arrivalTime = new ArrivalTime(lambda, seed);
         payTime = new PayTime(kMax, kMin, seed);
         pickTime = new PickTime(pMax, pMin, seed);
     }
 
+        public int ChangedRegisters(){
+        return unUsedRegisters-1;  //vet ej om detta är rätt
+        }
     public Customer createCustomer() {
         return new Customer(customerNumberGenerator.getCurrentCustomerNumber());
     }

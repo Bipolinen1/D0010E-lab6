@@ -1,4 +1,4 @@
-package Supermarket;
+package Supermarket.View;
 
 import General.View;
 
