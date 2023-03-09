@@ -11,6 +11,7 @@ public class SupermarketState extends State {
     final PayTime payTime;
     private int customersInStore = 0;
     private int customersInQueue = 0;
+    private int totalCustomers = 0;
     private CheckoutQueue checkoutQueue;
     private int payedCustomers = 0;
     private int missedCustomers = 0;
@@ -70,10 +71,12 @@ public class SupermarketState extends State {
 
     public void addCustomerInStore() {
         customersInStore += 1;
+        totalCustomers += 1;
     }
 
     public void removeCustomerInStore() {
         customersInStore -= 1;
+
     }
 
     public boolean isClosed() {
@@ -153,8 +156,8 @@ public class SupermarketState extends State {
         return checkoutQueue.size();
     }
 
-    public String getCustomersThatQueued(){
-        return Integer.toString(customersthatQueued);
+    public int getCustomersThatQueued(){
+        return customersthatQueued;
     }
 
 
@@ -169,6 +172,9 @@ public class SupermarketState extends State {
     }
     public double getUnUsedRegistersTime() {
         return unUsedRegisterTime;
+    }
+    public int getTotalCustomers() {
+        return totalCustomers;
     }
 
 }

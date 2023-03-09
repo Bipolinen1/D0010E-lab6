@@ -55,9 +55,25 @@ public class SupermarketView extends View{
         System.out.print(state.getCurrentlyQueuedCustomers() + "  ");
         System.out.print(state.getCheckoutQueue());
     }
+
+    private void writeEnd() {
+        System.out.print(state.getCurrentTime() + " ");
+        System.out.print("Stop");
+        System.out.println();
+        System.out.println("RESULTAT");
+        System.out.println("========");
+        System.out.println("1) Av "+ state.getTotalCustomers() + " kunder handlade "+ state.getPayedCustomers() + " medan " + state.getMissedCustomers( ) + " missades.");
+        System.out.println();
+        System.out.println("2) Total tid " + state.getUnUsedRegisters() +  " kassor varit lediga: " + state.getUnUsedRegisterTime() + " te.\n" +
+                "Genomsnittlig ledig kassatid: " + (state.getUnUsedRegisterTime() / state.getUnUsedRegisters())  +" te (dvs 23,03% av tiden från öppning tills sista kunden betalat).");
+        System.out.println();
+        System.out.println("Total tid " + state.getCustomersThatQueued() + " kunder tvingats köa: " + state.getTimeOfQueuedCustomers() + " te.\n" +
+                "Genomsnittlig kötid: " + (state.getTimeOfQueuedCustomers() / state.getCustomersThatQueued()) + " te.");
+    }
     public void update(Observable o, Object arg) {
         writeParameters();
         writeStart();
         writeState(o, arg);
+        writeEnd();
     }
 }
