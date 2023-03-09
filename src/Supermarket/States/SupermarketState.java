@@ -150,4 +150,7 @@ public class SupermarketState extends State {
         return Integer.toString(customersthatQueued);
     }
 
+    public double getTimeOfQueuedCustomers(){
+        return totalQueueTime;
+    }
 }
