@@ -11,5 +11,6 @@ public class EndEvent extends Event {
     public void execute(SupermarketState state){
         super.execute(state);
         state.stop();
+        state.update();
     }
 }

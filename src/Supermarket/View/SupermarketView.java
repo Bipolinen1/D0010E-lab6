@@ -1,6 +1,7 @@
 package Supermarket.View;
 
 import General.View;
+import Supermarket.States.SupermarketState;
 
 public class SupermarketView extends View{
     //TODO När programmet startar (startEvent) skriver SupermarketView ut alla parametrar
@@ -9,14 +10,16 @@ public class SupermarketView extends View{
     //TODO Vid stängning skrivs allt förutom kundummer ut
     //TODO Vid stopp skrivs tid och händelsenamn ut. Därefter en rubrik resultat med statistik
     //TODO Skrive en update() metod som uppdaterar vad som visas
-    public  SupermarketView(){
+    private SupermarketState state;
+    public  SupermarketView(SupermarketState state){
         super();
+        this.state = state
     }
 
     private void writeParameters() {
         System.out.println("PARAMETRAR");
         System.out.println("==========");
-        System.out.println("Antal kassor, N...........: " + N);
+        System.out.println("Antal kassor, N...........: " + state.getOpenRegisters());
         System.out.println("Max som ryms, M..........: " + M);
         System.out.println("Ankomshastighet, lambda..: 1.0" + lambda);
         System.out.println("Plocktider, [P_min..Pmax]: [" + P_min + ".." + P_max + "]:");

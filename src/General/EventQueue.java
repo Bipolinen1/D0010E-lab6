@@ -12,7 +12,7 @@ public class EventQueue extends ArrayList<Event>{
             this.add(event);
         }
         else {
-            for (int i = this.size() - 1; i >= 0; i--) {
+            for(int i = this.size() - 1; i >= 0; i--) {
                 if (event.getEventTime() < this.get(i).getEventTime()) {
                     this.add(i, event);
                 } else if (i == this.size() - 1) {
