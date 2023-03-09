@@ -40,7 +40,7 @@ public class SupermarketView extends View{
         System.out.println(0.0 + " Start");
     }
     private void writeState(Observable o, Object arg) {
-        System.out.println(state.getCurrentTime() + " ");
+        System.out.print(state.getCurrentTime() + " ");
 
         System.out.print(arg);
         System.out.print(state.getCurrentCustomerNumber() + "  ");
