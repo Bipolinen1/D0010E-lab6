@@ -146,7 +146,7 @@ public class SupermarketState extends State {
         return payedCustomers;
     }
 
-    public String getcustomersThatQueued(){
+    public String getCustomersThatQueued(){
         return Integer.toString(customersthatQueued);
     }
 
