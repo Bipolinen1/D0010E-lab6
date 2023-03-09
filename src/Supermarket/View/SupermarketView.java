@@ -16,6 +16,7 @@ public class SupermarketView extends View{
     //TODO Vid stopp skrivs tid och händelsenamn ut. Därefter en rubrik resultat med statistik
     //TODO Skrive en update() metod som uppdaterar vad som visas
     private SupermarketState state;
+    private double lastToPay;
     private EventQueue eventQueue;
     public  SupermarketView(SupermarketState state){
         super();
@@ -54,6 +55,7 @@ public class SupermarketView extends View{
         System.out.print(state.getTimeOfQueuedCustomers() + "     ");
         System.out.print(state.getCurrentlyQueuedCustomers() + "  ");
         System.out.print(state.getCheckoutQueue());
+        lastToPay = state.getCurrentTime();
     }
 
     private void writeEnd() {
@@ -65,7 +67,7 @@ public class SupermarketView extends View{
         System.out.println("1) Av "+ state.getTotalCustomers() + " kunder handlade "+ state.getPayedCustomers() + " medan " + state.getMissedCustomers( ) + " missades.");
         System.out.println();
         System.out.println("2) Total tid " + state.getUnUsedRegisters() +  " kassor varit lediga: " + state.getUnUsedRegisterTime() + " te.\n" +
-                "Genomsnittlig ledig kassatid: " + (state.getUnUsedRegisterTime() / state.getUnUsedRegisters())  +" te (dvs 23,03% av tiden från öppning tills sista kunden betalat).");
+                "Genomsnittlig ledig kassatid: " + (state.getUnUsedRegisterTime() / state.getUnUsedRegisters())  +" te (dvs " + (((state.getUnUsedRegisterTime() / state.getUnUsedRegisters()) / lastToPay) * 100)+ "% av tiden från öppning tills sista kunden betalat).");
         System.out.println();
         System.out.println("Total tid " + state.getCustomersThatQueued() + " kunder tvingats köa: " + state.getTimeOfQueuedCustomers() + " te.\n" +
                 "Genomsnittlig kötid: " + (state.getTimeOfQueuedCustomers() / state.getCustomersThatQueued()) + " te.");
