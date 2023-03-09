@@ -2,7 +2,6 @@ package Supermarket.Events;
 
 import General.EventQueue;
 import Supermarket.States.Customer;
-import General.State;
 import Supermarket.States.SupermarketState;
 
 public class PickEvent extends CustomerEvent {
@@ -12,5 +11,6 @@ public class PickEvent extends CustomerEvent {
 
     public void execute(SupermarketState state) {
         super.execute(state);
+        state.update();
     }
 }

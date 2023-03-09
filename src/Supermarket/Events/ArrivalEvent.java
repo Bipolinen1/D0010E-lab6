@@ -18,9 +18,12 @@ public class ArrivalEvent extends CustomerEvent {
 
         if(state.getCustomersInStore() < state.getMaxCustomers()) {
             eventQueue.add(new PickEvent(eventQueue, state.getArrivalTime(), customer));
+            state.addCustomerInStore();
+            state.setCurrentTime(state.getArrivalTime());
             if(!state.isClosed()){
                 eventQueue.add(new ArrivalEvent(eventQueue, state.getArrivalTime(), state.createCustomer()));
             }
+            state.update();
         }
         else {
             state.addMissedCustomer();

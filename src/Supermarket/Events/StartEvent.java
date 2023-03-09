@@ -14,7 +14,7 @@ public class StartEvent extends Event{
 
     public void execute(SupermarketState state) {
         super.execute(state);
-
         eventQueue.add(new ArrivalEvent(eventQueue, state.getArrivalTime(), state.createCustomer()));
+        state.update();
     }
 }
