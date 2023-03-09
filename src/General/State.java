@@ -30,7 +30,7 @@ public class State extends Observable{
 
     //TODO Skriv en metod update som ändrar tid och meddelar observers
     public void update(String name){
-        setChanged();
-        notifyObservers(name);
+        this.setChanged();
+        this.notifyObservers(name);
     }
 }

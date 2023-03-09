@@ -88,7 +88,7 @@ public class SupermarketState extends State {
     }
 
     public void open(){
-        closed = true;
+        closed = false;
     }
 
     public double getArrivalTime() {
@@ -177,4 +177,7 @@ public class SupermarketState extends State {
         return totalCustomers;
     }
 
+    public PickTime getPickTime() {
+        return pickTime;
+    }
 }
