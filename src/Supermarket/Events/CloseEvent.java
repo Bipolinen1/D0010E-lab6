@@ -14,6 +14,6 @@ public class CloseEvent extends Event{
     public void execute(SupermarketState state) {
         super.execute(state);
         state.close();
-        state.update();
+        state.update("Close");
     }
 }

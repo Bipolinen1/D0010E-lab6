@@ -43,16 +43,7 @@ public class SupermarketView extends View{
     private void writeState(Observable o, Object arg) {
         System.out.println(state.getCurrentTime() + " ");
 
-        switch() {
-            case "Ankomst":
-                System.out.print("Ankomst      ");
-            case "Plock":
-                System.out.print("Plock        ");
-            case "Betalning":
-                System.out.print("Betalning    ");
-            case "Stänger":
-                System.out.print("Stänger      ");
-        }
+        System.out.print(arg);
         System.out.print(state.getCurrentCustomerNumber() + "  ");
         System.out.print(state.isClosed() + "    ");
         System.out.print(state.getUnUsedRegisterTime() + "    ");
@@ -66,7 +57,8 @@ public class SupermarketView extends View{
         System.out.print(state.getCheckoutQueue());
     }
     public void update(Observable o, Object arg) {
+        writeParameters();
+        writeStart();
         writeState(o, arg);
-
     }
 }

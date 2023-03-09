@@ -22,6 +22,6 @@ public class PayEvent extends CustomerEvent {
             //TODO Minska antal lediga kassor med 1
         }
 
-        state.update();
+        state.update("Pay");
     }
 }

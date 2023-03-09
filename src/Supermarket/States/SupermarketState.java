@@ -46,6 +46,7 @@ public class SupermarketState extends State {
         arrivalTime = new ArrivalTime(lambda, seed);
         payTime = new PayTime(kMax, kMin, seed);
         pickTime = new PickTime(pMax, pMin, seed);
+        checkoutQueue = new CheckoutQueue();
     }
 
         public int ChangedRegisters(){
@@ -146,6 +147,9 @@ public class SupermarketState extends State {
         return payedCustomers;
     }
     public int getCurrentlyQueuedCustomers() {
+        if(checkoutQueue.isEmpty()){
+            return 0;
+        }
         return checkoutQueue.size();
     }
 
