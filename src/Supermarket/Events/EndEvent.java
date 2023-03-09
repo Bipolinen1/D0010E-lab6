@@ -5,8 +5,8 @@ import General.State;
 import Supermarket.States.SupermarketState;
 
 public class EndEvent extends Event {
-    public EndEvent(EventQueue eventQueue, double eventTime) {
-        super(eventQueue, eventTime);
+    public EndEvent(EventQueue eventQueue, double eventTime, State state) {
+        super(eventQueue, eventTime, state);
     }
     public void execute(State state){
         super.execute(state);

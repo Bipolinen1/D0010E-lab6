@@ -170,9 +170,6 @@ public class SupermarketState extends State {
     public double getTimeOfQueuedCustomers(){
         return totalQueueTime;
     }
-    public double getUnUsedRegistersTime() {
-        return unUsedRegisterTime;
-    }
     public int getTotalCustomers() {
         return totalCustomers;
     }

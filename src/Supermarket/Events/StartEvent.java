@@ -8,13 +8,16 @@ import Supermarket.States.*;
 
 public class StartEvent extends Event{
 
-    public StartEvent(EventQueue eventQueue, double eventTime){
-        super(eventQueue, eventTime);
+    public StartEvent(EventQueue eventQueue, double eventTime, SupermarketState state){
+        super(eventQueue, eventTime, state);
     }
 
-    public void execute(SupermarketState state) {
+
+    public void execute(State state) {
         super.execute(state);
-        eventQueue.add(new ArrivalEvent(eventQueue, state.getArrivalTime(), state.createCustomer()));
+        System.out.println("tesr");
+        eventQueue.add(new ArrivalEvent(eventQueue, ((SupermarketState)state).getArrivalTime(),
+                ((SupermarketState)state).createCustomer(), ((SupermarketState)state)));
         state.update("Start");
     }
 }

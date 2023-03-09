@@ -8,10 +8,12 @@ public class Simulator {
         this.state = state;
     }
     public void run(){
+        System.out.println("hej");
         while(!state.isStopped()){
-            Event event = eventQueue.get(0);
+            System.out.println("hhhhh");
+            eventQueue.get(0).execute(state);
             eventQueue.remove(0);
-            event.execute(state);
+
         }
     }
 

@@ -1,24 +1,26 @@
 package Supermarket.Events;
 
 import General.EventQueue;
+import General.State;
 import Supermarket.States.Customer;
 import Supermarket.States.SupermarketState;
 
 public class PickEvent extends CustomerEvent {
-    public PickEvent(EventQueue eventQueue, double eventTime, Customer customer) {
-        super(eventQueue, eventTime, customer);
+    public PickEvent(EventQueue eventQueue, double eventTime, Customer customer, SupermarketState state) {
+        super(eventQueue, eventTime, customer, state);
     }
 
-    public void execute(SupermarketState state) {
+    public void execute(State state) {
         super.execute(state);
-        if(state.getOpenRegisters() == 0){
-            state.getCheckoutQueue().addCustomer(customer);
+        if(((SupermarketState)state).getOpenRegisters() == 0){
+            ((SupermarketState)state).getCheckoutQueue().addCustomer(customer);
         }
         else{
             eventQueue.add(new PickEvent(eventQueue,
-                    state.getPickTime().calculatePickTime(state.getCurrentTime()), customer));
+                    ((SupermarketState)state).getPickTime().calculatePickTime(state.getCurrentTime()),
+                    customer, ((SupermarketState)state)));
         }
-        state.ChangedRegisters(); //Skapade en metod som retunerar I SuperMarketState unUsedRegisters och minskar det med 1
+        ((SupermarketState)state).ChangedRegisters(); //Skapade en metod som retunerar I SuperMarketState unUsedRegisters och minskar det med 1
         state.update("Pick");
 
     }

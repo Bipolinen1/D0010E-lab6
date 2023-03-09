@@ -8,6 +8,7 @@ public class EventQueue extends ArrayList<Event>{
     }
 
     public void addEvent(Event event){
+        System.out.println("Hej");
         if(this.isEmpty()){
             this.add(event);
         }
@@ -17,8 +18,6 @@ public class EventQueue extends ArrayList<Event>{
                     this.add(i, event);
                 } else if (i == this.size() - 1) {
                     this.add(event);
-                    break;
-                } else {
                     break;
                 }
             }

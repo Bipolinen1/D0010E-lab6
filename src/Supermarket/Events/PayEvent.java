@@ -6,18 +6,18 @@ import General.State;
 import Supermarket.States.SupermarketState;
 
 public class PayEvent extends CustomerEvent {
-    public PayEvent(EventQueue eventQueue, double eventTime, Customer customer) {
-        super(eventQueue, eventTime, customer);
+    public PayEvent(EventQueue eventQueue, double eventTime, Customer customer, SupermarketState state) {
+        super(eventQueue, eventTime, customer, state);
     }
 
-    public void execute(SupermarketState state) {
+    public void execute(State state) {
         super.execute(state);
-        state.removeCustomerInStore();
-        state.getUnUsedRegisters();
+        ((SupermarketState)state).removeCustomerInStore();
+        ((SupermarketState)state).getUnUsedRegisters();
 
-        if(state.getCustomersInQueue() < 0){
-            state.getCheckoutQueue().removeFirst();
-            state.getOpenRegisters();
+        if(((SupermarketState)state).getCustomersInQueue() < 0){
+            ((SupermarketState)state).getCheckoutQueue().removeFirst();
+            ((SupermarketState)state).getOpenRegisters();
         }else{
             //TODO Minska antal lediga kassor med 1
         }

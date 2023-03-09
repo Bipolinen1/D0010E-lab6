@@ -6,6 +6,7 @@ import Supermarket.States.SupermarketState;
 
 import java.io.ObjectStreamClass;
 import java.io.ObjectStreamException;
+import java.sql.SQLOutput;
 import java.util.Observable;
 
 public class SupermarketView extends View{
@@ -23,42 +24,61 @@ public class SupermarketView extends View{
         this.state = state;
     }
 
-    private void writeParameters() {
-        System.out.println("PARAMETRAR");
-        System.out.println("==========");
-        System.out.println("Antal kassor, N...........: " + state.getOpenRegisters());
-        System.out.println("Max som ryms, M..........: " + state.getMaxCustomers());
-        System.out.println("Ankomshastighet, lambda..:" + state.getLambda());
-        System.out.println("Plocktider, [P_min..Pmax]: [" + state.getpMin() + ".." + state.getpMax() + "]:");
-        System.out.println("Betaltider, [K_min..Kmax]: [" + state.getkMin() + ".." + state.getkMax() + "]:");
-        System.out.println("Frö, f...................: "+ state.getSeed());
-    }
 
     private void writeStart() {
-        System.out.println("FÖRLOPP");
-        System.out.println("=======");
-        System.out.println("Tid Händelse  Kund  ?  led   ledT   I   $   :-(   köat    köT   köar  [Kassakö..]");
-        System.out.println(0.0 + " Start");
+        System.out.println(String.format(
+                """
+                PARAMETRAR
+                ==========
+                Antal kassor, N...........: %s
+                Max som ryms, M...........: %s
+                Ankomsthastighet, lambda..: %s
+                Plocktider, [P-min..Pmax]: [%s..%s]
+                Betaltider, [K_min..Kmax]: [%s..%s]
+                Frö, f...................: %s
+                
+                Förlopp
+                =======
+                    Tid Händelse  Kund  ?  led   ledT   I   $   :-(  köat   köT   köar    [Kasakö..]
+                """,
+                state.getOpenRegisters(),
+                state.getMaxCustomers(),
+                state.getLambda(),
+                state.getpMin(),
+                state.getpMax(),
+                state.getkMin(),
+                state.getkMax(),
+                state.getSeed()
+        ));
+
     }
     private void writeState(Observable o, Object arg) {
-        System.out.print(state.getCurrentTime() + " ");
+        System.out.println(String.format(
+                "%6.2f %s %4d %s  %3d %7.2f % 4d % 4d  % 4d    % 4d  %6.2f    % 4d    %s",
+                state.getCurrentTime(),
+                arg,
+                state.getCurrentCustomerNumber(),
+                state.isClosed() ? "S" : "Ö",
+                state.getUnUsedRegisters(),
+                state.getUnUsedRegisterTime(),
+                state.getCustomersInStore(),
+                state.getPayedCustomers(),
+                state.getMissedCustomers(),
+                state.getCustomersThatQueued(),
+                state.getTimeOfQueuedCustomers(),
+                state.getCurrentlyQueuedCustomers(),
+                state.getCheckoutQueue()
+        ));
 
-        System.out.print(arg + " ");
-        System.out.print(state.getCurrentCustomerNumber() + "  ");
-        System.out.print(state.isClosed() + "    ");
-        System.out.print(state.getUnUsedRegisterTime() + "    ");
-        System.out.print(state.getUnUsedRegisters() + "    ");
-        System.out.print(state.getCustomersInStore()+ "    ");
-        System.out.print(state.getPayedCustomers() + "    ");
-        System.out.print(state.getMissedCustomers() + "     ");
-        System.out.print(state.getCustomersThatQueued() + "    ");
-        System.out.print(state.getTimeOfQueuedCustomers() + "     ");
-        System.out.print(state.getCurrentlyQueuedCustomers() + "  ");
-        System.out.print(state.getCheckoutQueue());
-        lastToPay = state.getCurrentTime();
     }
 
     private void writeEnd() {
+        System.out.println(String.format(
+                """
+                        
+                """
+        ));
+
         System.out.print(state.getCurrentTime() + " ");
         System.out.print("Stop");
         System.out.println();
@@ -73,7 +93,6 @@ public class SupermarketView extends View{
                 "Genomsnittlig kötid: " + (state.getTimeOfQueuedCustomers() / state.getCustomersThatQueued()) + " te.");
     }
     public void update(Observable o, Object arg) {
-        writeParameters();
         writeStart();
         writeState(o, arg);
         writeEnd();

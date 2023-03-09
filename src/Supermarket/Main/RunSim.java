@@ -16,11 +16,13 @@ public class RunSim {
 
     public RunSim(double openingTime, double closingTime, int maxCustomers, int maxOpenRegisters, double lambda,
                   long seed, double kMin, double kMax, double pMin, double pMax){
-        eventQueue = new EventQueue();
-        eventQueue.add(new StartEvent(eventQueue, openingTime));
-        eventQueue.add(new CloseEvent(eventQueue, closingTime));
-        eventQueue.add(new EndEvent(eventQueue, 999));
 
+        eventQueue = new EventQueue();
+        eventQueue.add(new StartEvent(eventQueue, openingTime, state));
+        eventQueue.add(new CloseEvent(eventQueue, closingTime, state));
+        eventQueue.add(new EndEvent(eventQueue, 999, state));
+
+        System.out.println(eventQueue);
         state = new SupermarketState(
                 maxCustomers,
                 maxOpenRegisters,
@@ -35,6 +37,7 @@ public class RunSim {
         state.addObserver(view);
         simulator = new Simulator(eventQueue, state);
         simulator.run();
+
     }
     public static void main(String[] args){
         RunSim runSim = new RunSim(0, 10.00, 5, 2, 1.0,
