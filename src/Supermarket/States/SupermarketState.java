@@ -128,4 +128,8 @@ public class SupermarketState extends State {
     public double getpMax() {
         return pMax;
     }
+
+    public int getCurrentCustomerNumber(){
+        return customerNumberGenerator.getCurrentCustomerNumber();
+    }
 }
