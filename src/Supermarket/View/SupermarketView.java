@@ -51,7 +51,7 @@ public class SupermarketView extends View{
                 System.out.print("Stänger      ");
         }
         System.out.print(state.getCurrentCustomerNumber() + "  ");
-        System.out.print(openOrClosed + "    ");
+        System.out.print(state.isClosed() + "    ");
         System.out.print(unusedRegisters + "    ");
         System.out.print(unusedRegistersTime + "    ");
         System.out.print(currentCustomers + "    ");

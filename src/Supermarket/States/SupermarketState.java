@@ -81,6 +81,10 @@ public class SupermarketState extends State {
         closed = true;
     }
 
+    public void open(){
+        closed = true;
+    }
+
     public double getArrivalTime() {
         return arrivalTime.calculateArrivalTime(getCurrentTime());
     }
