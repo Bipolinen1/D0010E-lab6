@@ -12,4 +12,48 @@ public class SupermarketView extends View{
     public  SupermarketView(){
         super();
     }
+
+    private void writeParameters() {
+        System.out.println("PARAMETRAR");
+        System.out.println("==========");
+        System.out.println("Antal kassor, N...........: " + N);
+        System.out.println("Max som ryms, M..........: " + M);
+        System.out.println("Ankomshastighet, lambda..: 1.0" + lambda);
+        System.out.println("Plocktider, [P_min..Pmax]: [" + P_min + ".." + P_max + "]:");
+        System.out.println("Betaltider, [K_min..Kmax]: [" + K_min + ".." + K_max + "]:");
+        System.out.println("Frö, f...................: "+ f);
+    }
+
+    private void writeStart() {
+        System.out.println("FÖRLOPP");
+        System.out.println("=======");
+        System.out.println("=======");
+        System.out.println(" Tid Händelse  Kund  ?  led   ledT   I   $   :-(   köat    köT   köar  [Kassakö..]");
+        System.out.println(start + " Start");
+    }
+    private void update() {
+        System.out.println(time + " ");
+        switch(eventName) {
+            case "Ankomst":
+                System.out.print("Ankomst      ");
+            case "Plock":
+                System.out.print("Plock        ");
+            case "Betalning":
+                System.out.print("Betalning    ");
+            case "Stänger":
+                System.out.print("Stänger      ");
+        }
+        System.out.print(customerNumber + "  ");
+        System.out.print(openOrClosed + "    ");
+        System.out.print(unusedRegisters + "    ");
+        System.out.print(unusedRegistersTime + "    ");
+        System.out.print(currentCustomers + "    ");
+        System.out.print(customersThatPayed + "    ");
+        System.out.print(customersMissed + "     ");
+        System.out.print(customersThatQueued + "    ");
+        System.out.print(timeOfQueuedCustomers + "     ");
+        System.out.print(currentlyQueuedCustomers + "  ");
+        System.out.print(listOfQueuedCustomers);
+
+    }
 }
