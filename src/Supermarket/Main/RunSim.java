@@ -5,6 +5,8 @@ import Supermarket.Events.CloseEvent;
 import Supermarket.Events.StartEvent;
 import Supermarket.States.SupermarketState;
 import Supermarket.View.SupermarketView;
+import java.util.Observer;
+import java.util.Observable;
 
 public class RunSim {
     private EventQueue eventQueue;
@@ -28,10 +30,12 @@ public class RunSim {
                 pMax);
 
         SupermarketView view = new SupermarketView();
-
-
+        state.addObserver(view);
+        simulator = new Simulator(eventQueue, state);
         simulator.run();
     }
     public static void main(String[] args){
+        RunSim runSim = new RunSim(0, 10.00, 5, 2, 1.0,
+                1234, 2.0, 3.0, 0.5, 1.0);
     }
 }

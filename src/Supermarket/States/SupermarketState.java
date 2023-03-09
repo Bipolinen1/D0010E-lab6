@@ -4,7 +4,7 @@ import General.State;
 
 public class SupermarketState extends State {
     final int maxCustomers;
-    final int maxOpenRegisters;
+    final int openRegisters;
     final CustomerNumberGenerator customerNumberGenerator;
     final ArrivalTime arrivalTime;
     final PickTime pickTime;
@@ -14,7 +14,6 @@ public class SupermarketState extends State {
     private CheckoutQueue checkoutQueue;
     private int payedCustomers = 0;
     private int missedCustomers = 0;
-    private int openRegisters;
     private int unUsedRegisters;
     private double unUsedRegisterTime = 0;
     private double totalQueueTime = 0;
@@ -26,7 +25,7 @@ public class SupermarketState extends State {
                             double kMax, double pMin, double pMax) {
         super();
         this.maxCustomers = maxCustomers;
-        this.maxOpenRegisters = maxOpenRegisters;
+        this.openRegisters = maxOpenRegisters;
         customerNumberGenerator = new CustomerNumberGenerator();
         arrivalTime = new ArrivalTime(lambda, seed);
         payTime = new PayTime(kMax, kMin, seed);
