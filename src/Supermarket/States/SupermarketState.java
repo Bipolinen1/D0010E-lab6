@@ -3,7 +3,6 @@ package Supermarket.States;
 import General.State;
 
 public class SupermarketState extends State {
-
     final int maxCustomers;
     final int openRegisters;
     final CustomerNumberGenerator customerNumberGenerator;
@@ -20,8 +19,7 @@ public class SupermarketState extends State {
     private double unUsedRegisterTime = 0;
     private double totalQueueTime = 0;
     private int ChangedRegisters;
-    private boolean closed = true;
-
+    private boolean closed;
     private double lambda;
     private long seed;
     private double kMin;
@@ -48,10 +46,9 @@ public class SupermarketState extends State {
         pickTime = new PickTime(pMax, pMin, seed);
     }
 
-    public int ChangedRegisters() {
-        return unUsedRegisters - 1;  //vet ej om detta är rätt
-    }
-
+        public int ChangedRegisters(){
+        return unUsedRegisters-1;  //vet ej om detta är rätt
+        }
     public Customer createCustomer() {
         return new Customer(customerNumberGenerator.getCurrentCustomerNumber());
     }
@@ -96,7 +93,7 @@ public class SupermarketState extends State {
         return unUsedRegisters;
     }
 
-    public void setCustomersInQueue() {
+    public void setCustomersInQueue(){
         customersInQueue = checkoutQueue.size();
     }
 
@@ -108,7 +105,7 @@ public class SupermarketState extends State {
         return checkoutQueue;
     }
 
-    public double getLambda() {
+    public double getLambda(){
         return lambda;
     }
 
@@ -124,20 +121,11 @@ public class SupermarketState extends State {
         return kMax;
     }
 
-    public double getpMin() {
+    public double getpMin(){
         return pMin;
     }
 
     public double getpMax() {
         return pMax;
     }
-
-    public int getunUsedRegisters() {
-        return unUsedRegisters;
-    }
-
-    public double getUnUsedRegisterTime(){
-        return unUsedRegisterTime;
-    }
-
 }
