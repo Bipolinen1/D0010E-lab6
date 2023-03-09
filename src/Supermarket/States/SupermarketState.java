@@ -14,9 +14,11 @@ public class SupermarketState extends State {
     private CheckoutQueue checkoutQueue;
     private int payedCustomers = 0;
     private int missedCustomers = 0;
-    private int unUsedRegisters;
+    private int unUsedRegisters; //lediga kassor
+    private int UsedRegisters;  //upptagna kassor
     private double unUsedRegisterTime = 0;
     private double totalQueueTime = 0;
+    private int ChangedRegisters;
     private boolean closed;
 
     // Lambda är genomstnittliga antalet kunder på ett visst tidsintervall
@@ -32,6 +34,9 @@ public class SupermarketState extends State {
         pickTime = new PickTime(pMax, pMin, seed);
     }
 
+        public int ChangedRegisters(){
+        return unUsedRegisters-1;  //vet ej om detta är rätt
+        }
     public Customer createCustomer() {
         return new Customer(customerNumberGenerator.getCurrentCustomerNumber());
     }
