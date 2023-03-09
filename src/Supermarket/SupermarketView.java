@@ -8,6 +8,7 @@ public class SupermarketView extends View{
     //TODO Varje gång en händelse inträffar skrivs alla värden på parametrarna ut (när update kallas)
     //TODO Vid stängning skrivs allt förutom kundummer ut
     //TODO Vid stopp skrivs tid och händelsenamn ut. Därefter en rubrik resultat med statistik
+    //TODO Skrive en update() metod som uppdaterar vad som visas
     public  SupermarketView(){
         super();
     }
