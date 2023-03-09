@@ -145,6 +145,9 @@ public class SupermarketState extends State {
     public int getPayedCustomers() {
         return payedCustomers;
     }
+    public int getCurrentlyQueuedCustomers() {
+        return checkoutQueue.size();
+    }
 
     public String getcustomersThatQueued(){
         return Integer.toString(customersthatQueued);

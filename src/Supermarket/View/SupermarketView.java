@@ -59,8 +59,8 @@ public class SupermarketView extends View{
         System.out.print(state.getMissedCustomers() + "     ");
         System.out.print(state.getcustomersThatQueued() + "    ");
         System.out.print(timeOfQueuedCustomers + "     ");
-        System.out.print(currentlyQueuedCustomers + "  ");
-        System.out.print(listOfQueuedCustomers);
+        System.out.print(state.getCurrentlyQueuedCustomers() + "  ");
+        System.out.print(state.getCheckoutQueue());
     }
     public void update(Observable o, Object arg) {
         writeState(o, arg);
