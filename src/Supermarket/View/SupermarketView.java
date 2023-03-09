@@ -1,5 +1,6 @@
 package Supermarket.View;
 
+import General.EventQueue;
 import General.View;
 import Supermarket.States.SupermarketState;
 
@@ -15,6 +16,7 @@ public class SupermarketView extends View{
     //TODO Vid stopp skrivs tid och händelsenamn ut. Därefter en rubrik resultat med statistik
     //TODO Skrive en update() metod som uppdaterar vad som visas
     private SupermarketState state;
+    private EventQueue eventQueue;
     public  SupermarketView(SupermarketState state){
         super();
         this.state = state;
@@ -40,6 +42,7 @@ public class SupermarketView extends View{
     }
     private void writeState(Observable o, Object arg) {
         System.out.println(state.getCurrentTime() + " ");
+
         switch() {
             case "Ankomst":
                 System.out.print("Ankomst      ");
@@ -52,17 +55,15 @@ public class SupermarketView extends View{
         }
         System.out.print(state.getCurrentCustomerNumber() + "  ");
         System.out.print(state.isClosed() + "    ");
-        System.out.print(state.getUnUsedRegistersTime() + "    ");
+        System.out.print(state.getUnUsedRegisterTime() + "    ");
         System.out.print(state.getUnUsedRegisters() + "    ");
         System.out.print(state.getCustomersInStore()+ "    ");
         System.out.print(state.getPayedCustomers() + "    ");
         System.out.print(state.getMissedCustomers() + "     ");
-        System.out.print(state.getCustomersThatQueued() + "    ");
+        System.out.print(state.getcustomersThatQueued() + "    ");
         System.out.print(state.getTimeOfQueuedCustomers() + "     ");
         System.out.print(state.getCurrentlyQueuedCustomers() + "  ");
         System.out.print(state.getCheckoutQueue());
-        System.out.print(state.getCustomersThatQueued() + "    ");
-        System.out.print(state.getTimeOfQueuedCustomers() + "     ");
     }
     public void update(Observable o, Object arg) {
         writeState(o, arg);
