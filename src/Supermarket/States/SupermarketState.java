@@ -132,4 +132,10 @@ public class SupermarketState extends State {
     public int getCurrentCustomerNumber(){
         return customerNumberGenerator.getCurrentCustomerNumber();
     }
+    public int getMissedCustomers() {
+        return missedCustomers;
+    }
+    public int getPayedCustomers() {
+        return payedCustomers;
+    }
 }
