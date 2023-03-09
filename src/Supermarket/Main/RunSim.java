@@ -31,7 +31,7 @@ public class RunSim {
                 pMin,
                 pMax);
 
-        SupermarketView view = new SupermarketView();
+        SupermarketView view = new SupermarketView(state);
         state.addObserver(view);
         simulator = new Simulator(eventQueue, state);
         simulator.run();

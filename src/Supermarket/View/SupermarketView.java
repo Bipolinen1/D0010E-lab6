@@ -3,6 +3,8 @@ package Supermarket.View;
 import General.View;
 import Supermarket.States.SupermarketState;
 
+import java.util.Observable;
+
 public class SupermarketView extends View{
     //TODO När programmet startar (startEvent) skriver SupermarketView ut alla parametrar
     //TODO Även rubriken förlopp samt kolumnnamn skrivs ut. Tiden 0 och namnet på starthändelsen skrivs ut
@@ -21,7 +23,7 @@ public class SupermarketView extends View{
         System.out.println("==========");
         System.out.println("Antal kassor, N...........: " + state.getOpenRegisters());
         System.out.println("Max som ryms, M..........: " + state.getMaxCustomers());
-        System.out.println("Ankomshastighet, lambda..: 1.0" + );
+        System.out.println("Ankomshastighet, lambda..:" + state.getLambda());
         System.out.println("Plocktider, [P_min..Pmax]: [" + state.getpMin() + ".." + state.getpMax() + "]:");
         System.out.println("Betaltider, [K_min..Kmax]: [" + state.getkMin() + ".." + state.getkMax() + "]:");
         System.out.println("Frö, f...................: "+ state.getSeed());
@@ -36,7 +38,7 @@ public class SupermarketView extends View{
     }
     private void writeState() {
         System.out.println(state.getCurrentTime() + " ");
-        switch(eventName) {
+        switch() {
             case "Ankomst":
                 System.out.print("Ankomst      ");
             case "Plock":
@@ -59,7 +61,6 @@ public class SupermarketView extends View{
         System.out.print(listOfQueuedCustomers);
     }
     public void update() {
-        setChanged();
-        notifyObservers();
+
     }
 }
