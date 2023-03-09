@@ -19,7 +19,7 @@ public class PayEvent extends CustomerEvent {
             state.getCheckoutQueue().removeFirst();
             state.getOpenRegisters();
         }else{
-            //TODO Minska antal lediga kassor med 1
+            //TODO Minska antal lediga kassor med 1.
         }
 
         state.update();
