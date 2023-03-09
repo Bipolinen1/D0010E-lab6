@@ -5,8 +5,6 @@ import General.State;
 public class SupermarketState extends State {
     final int maxCustomers;
     final int maxOpenRegisters;
-    final double openingTime;
-    final double closingTime;
     final CustomerNumberGenerator customerNumberGenerator;
     final ArrivalTime arrivalTime;
     final PickTime pickTime;
@@ -24,13 +22,11 @@ public class SupermarketState extends State {
 
     // Lambda är genomstnittliga antalet kunder på ett visst tidsintervall
     // Seed är ett tal som används vid slumpgenerering
-    public SupermarketState(int maxCustomers, int maxOpenRegisters, double openingTime, double closingTime,
-                            double lambda, long seed, double kMin, double kMax, double pMin, double pMax) {
+    public SupermarketState(int maxCustomers, int maxOpenRegisters, double lambda, long seed, double kMin,
+                            double kMax, double pMin, double pMax) {
         super();
         this.maxCustomers = maxCustomers;
         this.maxOpenRegisters = maxOpenRegisters;
-        this.openingTime = openingTime;
-        this.closingTime = closingTime;
         customerNumberGenerator = new CustomerNumberGenerator();
         arrivalTime = new ArrivalTime(lambda, seed);
         payTime = new PayTime(kMax, kMin, seed);
