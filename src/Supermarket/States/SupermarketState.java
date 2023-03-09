@@ -153,5 +153,9 @@ public class SupermarketState extends State {
         return Integer.toString(customersthatQueued);
     }
 
+    public double getUnUsedRegisterTime(){
+        return unUsedRegisterTime;
+    }
+
 
 }
