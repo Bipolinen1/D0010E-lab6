@@ -1,13 +1,15 @@
 package Supermarket.Main;
 import General.EventQueue;
+import General.Simulator;
 import Supermarket.Events.CloseEvent;
-import Supermarket.States.Customer
 import Supermarket.Events.StartEvent;
 import Supermarket.States.SupermarketState;
+import Supermarket.View.SupermarketView;
 
 public class RunSim {
     private EventQueue eventQueue;
     private SupermarketState state;
+    private Simulator simulator;
 
     public RunSim(double openingTime, double closingTime, int maxCustomers, int maxOpenRegisters, double lambda,
                   long seed, double kMin, double kMax, double pMin, double pMax){
@@ -18,16 +20,18 @@ public class RunSim {
         state = new SupermarketState(
                 maxCustomers,
                 maxOpenRegisters,
-                openingTime,
-                closingTime,
                 lambda,
                 seed,
                 kMin,
                 kMax,
                 pMin,
                 pMax);
+
+        SupermarketView view = new SupermarketView();
+
+
+        simulator.run();
     }
     public static void main(String[] args){
-
     }
 }
