@@ -60,7 +60,7 @@ public class SupermarketView extends View{
         System.out.print(state.getCustomersInStore()+ "    ");
         System.out.print(state.getPayedCustomers() + "    ");
         System.out.print(state.getMissedCustomers() + "     ");
-        System.out.print(state.getcustomersThatQueued() + "    ");
+        System.out.print(state.getCustomersThatQueued() + "    ");
         System.out.print(state.getTimeOfQueuedCustomers() + "     ");
         System.out.print(state.getCurrentlyQueuedCustomers() + "  ");
         System.out.print(state.getCheckoutQueue());

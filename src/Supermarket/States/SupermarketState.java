@@ -149,13 +149,22 @@ public class SupermarketState extends State {
         return checkoutQueue.size();
     }
 
-    public String getcustomersThatQueued(){
+    public String getCustomersThatQueued(){
         return Integer.toString(customersthatQueued);
     }
+
 
     public double getUnUsedRegisterTime(){
         return unUsedRegisterTime;
     }
 
+
+
+    public double getTimeOfQueuedCustomers(){
+        return totalQueueTime;
+    }
+    public double getUnUsedRegistersTime() {
+        return unUsedRegisterTime;
+    }
 
 }
