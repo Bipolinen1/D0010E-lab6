@@ -13,6 +13,7 @@ public class PickEvent extends CustomerEvent {
     @Override
     public void execute(State state) {
         super.execute(state);
+        state.update(this);
         if(((SupermarketState)state).getOpenRegisters() == 0){
             ((SupermarketState)state).getCheckoutQueue().addCustomer(customer);
         }
@@ -21,7 +22,7 @@ public class PickEvent extends CustomerEvent {
                     ((SupermarketState)state).getPayTime(), customer, ((SupermarketState)state)));
         }
         ((SupermarketState)state).ChangedRegisters(); //Skapade en metod som retunerar I SuperMarketState unUsedRegisters och minskar det med 1
-        state.update(this);
+
 
     }
 

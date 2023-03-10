@@ -15,9 +15,10 @@ public class StartEvent extends Event{
     @Override
     public void execute(State state) {
         super.execute(state);
+        state.update(this);
         eventQueue.addEvent(new ArrivalEvent(eventQueue, ((SupermarketState)state).getArrivalTime(),
                 ((SupermarketState)state).createCustomer(), ((SupermarketState)state)));
-        state.update(this);
+
     }
 
     public String getName(){

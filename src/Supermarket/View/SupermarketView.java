@@ -23,7 +23,8 @@ public class SupermarketView extends View{
     }
 
 
-    private void writeStart() {
+    private void writeStart(Observable o, Object arg) {
+        Event event = (Event) arg;
         System.out.println(String.format(
                 """
                 PARAMETRAR
@@ -38,6 +39,7 @@ public class SupermarketView extends View{
                 Förlopp
                 =======
                    Tid Händelse  Kund  ?  led   ledT   I   $   :-(  köat   köT   köar    [Kasakö..]
+                   %6.2f %s
                 """,
                 state.getOpenRegisters(),
                 state.getMaxCustomers(),
@@ -46,33 +48,18 @@ public class SupermarketView extends View{
                 state.getpMax(),
                 state.getkMin(),
                 state.getkMax(),
-                state.getSeed()
+                state.getSeed(),
+                state.getCurrentTime(),
+                event.getName()
         ));
 
     }
     private void writeState(Observable o, Object arg) {
         Event event = (Event) arg;
 
-        System.out.println(String.format(
-                "%6.2f %-12s %d %2s %4d %6.2f % 3d %3d %4d %5d %6.2f %6d %s",
-                state.getCurrentTime(),
-                event.getName(),
-                state.getCurrentCustomerNumber(),
-                state.isClosed() ? "S" : "Ö",
-                state.getUnUsedRegisters(),
-                state.getUnUsedRegisterTime(),
-                state.getCustomersInStore(),
-                state.getPayedCustomers(),
-                state.getMissedCustomers(),
-                state.getCustomersThatQueued(),
-                state.getTimeOfQueuedCustomers(),
-                state.getCurrentlyQueuedCustomers(),
-                state.getCheckoutQueue()
-        ));
-
 
         if(event instanceof StartEvent){
-            writeStart();
+            writeStart(o, arg);
         }
         else if(event instanceof EndEvent){
             writeEnd();

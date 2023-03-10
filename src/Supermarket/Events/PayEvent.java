@@ -13,6 +13,7 @@ public class PayEvent extends CustomerEvent {
     @Override
     public void execute(State state) {
         super.execute(state);
+        state.update(this);
         ((SupermarketState)state).removeCustomerInStore();
         ((SupermarketState)state).addTotalCustomer();
 
@@ -22,8 +23,6 @@ public class PayEvent extends CustomerEvent {
         }else{
             //TODO Minska antal lediga kassor med 1
         }
-
-        state.update(this);
     }
 
     public String getName(){

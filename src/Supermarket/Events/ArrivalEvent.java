@@ -14,6 +14,7 @@ public class ArrivalEvent extends CustomerEvent {
     @Override
     public void execute(State state) {
         super.execute(state);
+        state.update(this);
         if(((SupermarketState)state).getCustomersInStore() < ((SupermarketState)state).getMaxCustomers()) {
             eventQueue.addEvent(new PickEvent(eventQueue, ((SupermarketState)state).getPickTime(),
                     customer, ((SupermarketState)state)));
@@ -22,7 +23,7 @@ public class ArrivalEvent extends CustomerEvent {
                 eventQueue.addEvent(new ArrivalEvent(eventQueue, ((SupermarketState)state).getArrivalTime(),
                         ((SupermarketState)state).createCustomer(), ((SupermarketState)state)));
             }
-            state.update(this);
+
         }
         else {
             ((SupermarketState)state).addMissedCustomer();

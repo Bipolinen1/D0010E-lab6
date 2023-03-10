@@ -12,8 +12,8 @@ public class EndEvent extends Event {
     @Override
     public void execute(State state){
         super.execute(state);
-        state.stop();
         state.update(this);
+        state.stop();
     }
     public String getName(){
         return "End";

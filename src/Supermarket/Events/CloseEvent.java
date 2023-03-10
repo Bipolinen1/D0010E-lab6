@@ -13,8 +13,9 @@ public class CloseEvent extends Event{
     @Override
     public void execute(State state) {
         super.execute(state);
-        ((SupermarketState)state).close();
         state.update(this);
+        ((SupermarketState)state).close();
+
     }
 
     public String getName(){
