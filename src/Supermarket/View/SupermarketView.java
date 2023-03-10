@@ -1,12 +1,8 @@
 package Supermarket.View;
-
+import General.Event;
 import General.EventQueue;
 import General.View;
 import Supermarket.States.SupermarketState;
-
-import java.io.ObjectStreamClass;
-import java.io.ObjectStreamException;
-import java.sql.SQLOutput;
 import java.util.Observable;
 
 public class SupermarketView extends View{
@@ -53,10 +49,11 @@ public class SupermarketView extends View{
 
     }
     private void writeState(Observable o, Object arg) {
+        Event event = (Event) arg;
         System.out.println(String.format(
                 "%6.2f %s   %6d %2s  %3d %6.2f % 3d % 3d  %3d %5d  %5.2f    %3d    %s",
                 state.getCurrentTime(),
-                arg,
+                event.getName(),
                 state.getCurrentCustomerNumber(),
                 state.isClosed() ? "S" : "Ö",
                 state.getUnUsedRegisters(),

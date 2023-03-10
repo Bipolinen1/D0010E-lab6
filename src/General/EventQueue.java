@@ -15,11 +15,12 @@ public class EventQueue extends ArrayList<Event>{
         else {
             for(int i = this.size() - 1; i >= 0; i--) {
                 if (event.getEventTime() < this.get(i).getEventTime()) {
+                    continue;
+                } else if (i == 0) {
                     this.add(i, event);
-                } else if (i == this.size() - 1) {
-                    this.add(event);
                     break;
                 }
+                this.add(i, event);
             }
         }
     }
@@ -28,6 +29,10 @@ public class EventQueue extends ArrayList<Event>{
          Event event = this.get(0);
          this.remove(0);
          return event;
+    }
+
+    public void removeEvent(){
+        this.remove(0);
     }
 
 

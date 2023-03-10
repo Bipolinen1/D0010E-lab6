@@ -16,8 +16,12 @@ public class StartEvent extends Event{
     public void execute(State state) {
         super.execute(state);
         System.out.println("tesr");
-        eventQueue.add(new ArrivalEvent(eventQueue, ((SupermarketState)state).getArrivalTime(),
+        eventQueue.addEvent(new ArrivalEvent(eventQueue, ((SupermarketState)state).getArrivalTime(),
                 ((SupermarketState)state).createCustomer(), ((SupermarketState)state)));
-        state.update("Start");
+        state.update(this);
+    }
+
+    public String getName(){
+        return "Start";
     }
 }

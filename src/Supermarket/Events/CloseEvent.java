@@ -14,6 +14,10 @@ public class CloseEvent extends Event{
     public void execute(State state) {
         super.execute(state);
         ((SupermarketState)state).close();
-        state.update("Close");
+        state.update(this);
+    }
+
+    public String getName(){
+        return "Close";
     }
 }

@@ -17,12 +17,16 @@ public class PickEvent extends CustomerEvent {
             ((SupermarketState)state).getCheckoutQueue().addCustomer(customer);
         }
         else{
-            eventQueue.add(new PickEvent(eventQueue,
+            eventQueue.addEvent(new PickEvent(eventQueue,
                     ((SupermarketState)state).getPickTime().calculatePickTime(state.getCurrentTime()),
                     customer, ((SupermarketState)state)));
         }
         ((SupermarketState)state).ChangedRegisters(); //Skapade en metod som retunerar I SuperMarketState unUsedRegisters och minskar det med 1
-        state.update("Pick");
+        state.update(this);
 
+    }
+
+    public String getName(){
+        return "Pick";
     }
 }

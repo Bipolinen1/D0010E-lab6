@@ -15,4 +15,6 @@ public abstract class Event {
     public double getEventTime(){
         return this.eventTime;
     }
+
+    public abstract String getName();
 }

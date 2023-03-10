@@ -16,20 +16,24 @@ public class ArrivalEvent extends CustomerEvent {
         super.execute(state);
         System.out.println("arrivalTest");
         if(((SupermarketState)state).getCustomersInStore() < ((SupermarketState)state).getMaxCustomers()) {
-            eventQueue.add(new PickEvent(eventQueue,
+            eventQueue.addEvent(new PickEvent(eventQueue,
                     ((SupermarketState)state).getPickTime().calculatePickTime(state.getCurrentTime()),
                     customer, ((SupermarketState)state)));
             ((SupermarketState)state).addCustomerInStore();
             ((SupermarketState)state).setCurrentTime(((SupermarketState)state).getArrivalTime());
             if(!((SupermarketState)state).isClosed()){
-                eventQueue.add(new ArrivalEvent(eventQueue, ((SupermarketState)state).getArrivalTime(),
+                eventQueue.addEvent(new ArrivalEvent(eventQueue, ((SupermarketState)state).getArrivalTime(),
                         ((SupermarketState)state).createCustomer(), ((SupermarketState)state)));
             }
-            state.update("Arrival");
+            state.update(this);
         }
         else {
             ((SupermarketState)state).addMissedCustomer();
 
         }
+    }
+
+    public String getName(){
+        return "Arrival";
     }
 }
