@@ -73,6 +73,7 @@ public class SupermarketView extends View{
         System.out.println(String.format(
                 """
                           %.2f Stop
+                          
                           RESULTAT
                           ========  
                            
