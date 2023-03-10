@@ -51,7 +51,7 @@ public class SupermarketView extends View{
     private void writeState(Observable o, Object arg) {
         Event event = (Event) arg;
         System.out.println(String.format(
-                "%6.2f %s   %6d %2s  %3d %6.2f % 3d % 3d  %3d %5d  %5.2f    %3d    %s",
+                "%6.2f %-12s %d %2s %4d %6.2f % 3d %3d %4d %5d %6.2f %6d %s",
                 state.getCurrentTime(),
                 event.getName(),
                 state.getCurrentCustomerNumber(),
@@ -72,22 +72,35 @@ public class SupermarketView extends View{
     private void writeEnd() {
         System.out.println(String.format(
                 """
-                        
-                """
-        ));
+                          %.2f Stop
+                          RESULTAT
+                          ========  
+                           
+                          1) Av %d kunder handlade %d medan %d missades.
+                           
+                          2) Total tid %d kassor varit lediga: %.2f te.
+                             Genomsnittlig ledig kassatid: %f te (dvs %f%% av tiden från öppning tills sista kunden betalat).
+                               
+                          Total tid %d kunder tvingats köa: %.2f te.
+                          Genomsnittlig kötid: %.2f te.
+                               
+                            
+                        """,
+                state.getCurrentTime(),
+                state.getTotalCustomers(),
+                state.getPayedCustomers(),
+                state.getMissedCustomers(),
+                state.getUnUsedRegisters(),
+                state.getUnUsedRegisterTime(),
+                (state.getUnUsedRegisterTime() / state.getUnUsedRegisters()),
+                ((state.getUnUsedRegisterTime() / state.getUnUsedRegisters()) / lastToPay) * 100,
+                state.getCustomersThatQueued(),
+                state.getTimeOfQueuedCustomers(),
+                (state.getTimeOfQueuedCustomers() / state.getCustomersThatQueued())
 
-        System.out.print(state.getCurrentTime() + " ");
-        System.out.print("Stop");
-        System.out.println();
-        System.out.println("RESULTAT");
-        System.out.println("========");
-        System.out.println("1) Av "+ state.getTotalCustomers() + " kunder handlade "+ state.getPayedCustomers() + " medan " + state.getMissedCustomers( ) + " missades.");
-        System.out.println();
-        System.out.println("2) Total tid " + state.getUnUsedRegisters() +  " kassor varit lediga: " + state.getUnUsedRegisterTime() + " te.\n" +
-                "Genomsnittlig ledig kassatid: " + (state.getUnUsedRegisterTime() / state.getUnUsedRegisters())  +" te (dvs " + (((state.getUnUsedRegisterTime() / state.getUnUsedRegisters()) / lastToPay) * 100)+ "% av tiden från öppning tills sista kunden betalat).");
-        System.out.println();
-        System.out.println("Total tid " + state.getCustomersThatQueued() + " kunder tvingats köa: " + state.getTimeOfQueuedCustomers() + " te.\n" +
-                "Genomsnittlig kötid: " + (state.getTimeOfQueuedCustomers() / state.getCustomersThatQueued()) + " te.");
+
+
+        ));
     }
     public void update(Observable o, Object arg) {
         writeStart();
