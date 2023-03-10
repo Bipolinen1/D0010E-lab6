@@ -8,19 +8,18 @@ public class EventQueue extends ArrayList<Event>{
     }
 
     public void addEvent(Event event){
-        System.out.println("Hej");
         if(this.isEmpty()){
             this.add(event);
         }
         else {
-            for(int i = this.size() - 1; i >= 0; i--) {
+            for(int i = 0; i < this.size(); i++) {
                 if (event.getEventTime() < this.get(i).getEventTime()) {
-                    continue;
-                } else if (i == 0) {
                     this.add(i, event);
                     break;
+                } else if (i == this.size() - 1){
+                    this.add(event);
+                    break;
                 }
-                this.add(i, event);
             }
         }
     }

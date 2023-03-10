@@ -21,7 +21,6 @@ public class RunSim {
         eventQueue.addEvent(new StartEvent(eventQueue, openingTime, state));
         eventQueue.addEvent(new CloseEvent(eventQueue, closingTime, state));
         eventQueue.addEvent(new EndEvent(eventQueue, 999, state));
-
         System.out.println(eventQueue);
         state = new SupermarketState(
                 maxCustomers,
@@ -38,7 +37,6 @@ public class RunSim {
         simulator = new Simulator(eventQueue, state);
         simulator.run();
         System.out.println(eventQueue);
-
     }
     public static void main(String[] args){
         RunSim runSim = new RunSim(0, 10.00, 5, 2, 1.0,

@@ -15,9 +15,9 @@ public class State extends Observable{
     }
 
     public void setCurrentTime(double time){
-        if(time < this.getCurrentTime()){
-            throw new RuntimeException("Can't go back in time");
-        }
+        //if(time < this.getCurrentTime()){
+        //    throw new RuntimeException("Can't go back in time");
+        //}
         currentTime = time;
     }
     public boolean isStopped(){

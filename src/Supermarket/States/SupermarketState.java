@@ -176,7 +176,11 @@ public class SupermarketState extends State {
         return totalCustomers;
     }
 
-    public PickTime getPickTime() {
-        return pickTime;
+    public double getPickTime() {
+        return pickTime.calculatePickTime(currentTime);
+    }
+
+    public double getPayTime(){
+        return payTime.calculatePayTime(currentTime);
     }
 }

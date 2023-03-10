@@ -13,7 +13,6 @@ public abstract class CustomerEvent extends Event {
 
     @Override
     public void execute(State state){
-        System.out.println("customerEventTest");
         super.execute(state);
     }
 

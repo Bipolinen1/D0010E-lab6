@@ -15,7 +15,7 @@ import Supermarket.Random.UniformRandomStream;
 
         }
 
-        public double calculatePickTime(double currentTime) {
+        public double calculatePayTime(double currentTime) {
             return currentTime + rand.next();
         }
     }

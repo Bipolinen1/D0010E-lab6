@@ -15,7 +15,6 @@ public class StartEvent extends Event{
     @Override
     public void execute(State state) {
         super.execute(state);
-        System.out.println("tesr");
         eventQueue.addEvent(new ArrivalEvent(eventQueue, ((SupermarketState)state).getArrivalTime(),
                 ((SupermarketState)state).createCustomer(), ((SupermarketState)state)));
         state.update(this);
