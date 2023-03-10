@@ -2,6 +2,8 @@ package Supermarket.View;
 import General.Event;
 import General.EventQueue;
 import General.View;
+import Supermarket.Events.EndEvent;
+import Supermarket.Events.StartEvent;
 import Supermarket.States.SupermarketState;
 import java.util.Observable;
 
@@ -50,6 +52,7 @@ public class SupermarketView extends View{
     }
     private void writeState(Observable o, Object arg) {
         Event event = (Event) arg;
+
         System.out.println(String.format(
                 "%6.2f %-12s %d %2s %4d %6.2f % 3d %3d %4d %5d %6.2f %6d %s",
                 state.getCurrentTime(),
@@ -66,6 +69,32 @@ public class SupermarketView extends View{
                 state.getCurrentlyQueuedCustomers(),
                 state.getCheckoutQueue()
         ));
+
+
+        if(event instanceof StartEvent){
+            writeStart();
+        }
+        else if(event instanceof EndEvent){
+            writeEnd();
+        }
+        else {
+            System.out.println(String.format(
+                    "%6.2f %s   %6d %2s  %3d %6.2f % 3d % 3d  %3d %5d  %5.2f    %3d    %s",
+                    state.getCurrentTime(),
+                    event.getName(),
+                    state.getCurrentCustomerNumber(),
+                    state.isClosed() ? "S" : "Ö",
+                    state.getUnUsedRegisters(),
+                    state.getUnUsedRegisterTime(),
+                    state.getCustomersInStore(),
+                    state.getPayedCustomers(),
+                    state.getMissedCustomers(),
+                    state.getCustomersThatQueued(),
+                    state.getTimeOfQueuedCustomers(),
+                    state.getCurrentlyQueuedCustomers(),
+                    state.getCheckoutQueue()
+            ));
+        }
 
     }
 
@@ -104,8 +133,6 @@ public class SupermarketView extends View{
         ));
     }
     public void update(Observable o, Object arg) {
-        writeStart();
         writeState(o, arg);
-        writeEnd();
     }
 }
