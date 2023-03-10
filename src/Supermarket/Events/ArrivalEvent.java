@@ -11,12 +11,14 @@ public class ArrivalEvent extends CustomerEvent {
         super(eventQueue, eventTime, customer, state);
     }
 
-
+    @Override
     public void execute(State state) {
         super.execute(state);
         System.out.println("arrivalTest");
         if(((SupermarketState)state).getCustomersInStore() < ((SupermarketState)state).getMaxCustomers()) {
-            eventQueue.add(new PickEvent(eventQueue, ((SupermarketState)state).getArrivalTime(), customer, ((SupermarketState)state)));
+            eventQueue.add(new PickEvent(eventQueue,
+                    ((SupermarketState)state).getPickTime().calculatePickTime(state.getCurrentTime()),
+                    customer, ((SupermarketState)state)));
             ((SupermarketState)state).addCustomerInStore();
             ((SupermarketState)state).setCurrentTime(((SupermarketState)state).getArrivalTime());
             if(!((SupermarketState)state).isClosed()){

@@ -8,6 +8,8 @@ public class EndEvent extends Event {
     public EndEvent(EventQueue eventQueue, double eventTime, State state) {
         super(eventQueue, eventTime, state);
     }
+
+    @Override
     public void execute(State state){
         super.execute(state);
         state.stop();

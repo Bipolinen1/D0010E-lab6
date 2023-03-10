@@ -10,6 +10,7 @@ public class PayEvent extends CustomerEvent {
         super(eventQueue, eventTime, customer, state);
     }
 
+    @Override
     public void execute(State state) {
         super.execute(state);
         ((SupermarketState)state).removeCustomerInStore();

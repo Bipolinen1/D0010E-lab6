@@ -10,6 +10,7 @@ public class PickEvent extends CustomerEvent {
         super(eventQueue, eventTime, customer, state);
     }
 
+    @Override
     public void execute(State state) {
         super.execute(state);
         if(((SupermarketState)state).getOpenRegisters() == 0){

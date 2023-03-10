@@ -10,7 +10,7 @@ public class CloseEvent extends Event{
         super(eventQueue, eventTime, state);
     }
 
-
+    @Override
     public void execute(State state) {
         super.execute(state);
         ((SupermarketState)state).close();

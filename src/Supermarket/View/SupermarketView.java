@@ -39,7 +39,7 @@ public class SupermarketView extends View{
                 
                 Förlopp
                 =======
-                    Tid Händelse  Kund  ?  led   ledT   I   $   :-(  köat   köT   köar    [Kasakö..]
+                   Tid Händelse  Kund  ?  led   ledT   I   $   :-(  köat   köT   köar    [Kasakö..]
                 """,
                 state.getOpenRegisters(),
                 state.getMaxCustomers(),
@@ -54,7 +54,7 @@ public class SupermarketView extends View{
     }
     private void writeState(Observable o, Object arg) {
         System.out.println(String.format(
-                "%6.2f %s %4d %s  %3d %7.2f % 4d % 4d  % 4d    % 4d  %6.2f    % 4d    %s",
+                "%6.2f %s   %6d %2s  %3d %6.2f % 3d % 3d  %3d %5d  %5.2f    %3d    %s",
                 state.getCurrentTime(),
                 arg,
                 state.getCurrentCustomerNumber(),
