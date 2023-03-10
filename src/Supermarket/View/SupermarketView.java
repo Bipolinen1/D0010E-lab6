@@ -39,8 +39,7 @@ public class SupermarketView extends View{
                 Förlopp
                 =======
                    Tid Händelse  Kund  ?  led   ledT   I   $   :-(  köat   köT   köar    [Kasakö..]
-                   %6.2f %s
-                """,
+                  %.2f %s""",
                 state.getOpenRegisters(),
                 state.getMaxCustomers(),
                 state.getLambda(),
@@ -66,7 +65,7 @@ public class SupermarketView extends View{
         }
         else {
             System.out.println(String.format(
-                    "%6.2f %s   %6d %2s  %3d %6.2f % 3d % 3d  %3d %5d  %5.2f    %3d    %s",
+                    "%6.2f %-12s %-2d %s %4d %6.2f % 3d %3d %4d %5d %6.2f %6d %s",
                     state.getCurrentTime(),
                     event.getName(),
                     state.getCurrentCustomerNumber(),
@@ -88,7 +87,7 @@ public class SupermarketView extends View{
     private void writeEnd() {
         System.out.println(String.format(
                 """
-                          %.2f Stop
+                        %.2f Stop
                           
                           RESULTAT
                           ========  
