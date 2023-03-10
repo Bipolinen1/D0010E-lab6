@@ -9,7 +9,7 @@ public class Simulator {
     }
     public void run(){
         while(!state.isStopped()){
-            eventQueue.get(0).execute(state);
+            eventQueue.get(0).execute();
             eventQueue.removeEvent();
         }
     }

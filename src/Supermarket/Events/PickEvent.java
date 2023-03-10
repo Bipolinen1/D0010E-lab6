@@ -11,19 +11,20 @@ public class PickEvent extends CustomerEvent {
     }
 
     @Override
-    public void execute(State state) {
-        super.execute(state);
+    public void execute() {
+        super.execute();
         state.update(this);
-        if(((SupermarketState)state).getOpenRegisters() == 0){
-            ((SupermarketState)state).getCheckoutQueue().addCustomer(customer);
-        }
-        else{
+        ((SupermarketState)state).getCheckoutQueue().addCustomer(customer);
+        if((((SupermarketState)state).getUnUsedRegisters() > 0)){
+            ((SupermarketState)state).setUnUsedRegisters(((SupermarketState)state).getUnUsedRegisters() - 1);
             eventQueue.addEvent(new PayEvent(eventQueue,
-                    ((SupermarketState)state).getPayTime(), customer, ((SupermarketState)state)));
+                    ((SupermarketState)state).getPayTime(), ((SupermarketState)state).getCheckoutQueue().getFirstCustomer(),
+                    ((SupermarketState)state)));
         }
-        ((SupermarketState)state).ChangedRegisters(); //Skapade en metod som retunerar I SuperMarketState unUsedRegisters och minskar det med 1
+    }
 
-
+    public Customer getCustomer(){
+        return this.customer;
     }
 
     public String getName(){

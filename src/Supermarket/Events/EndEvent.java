@@ -10,8 +10,8 @@ public class EndEvent extends Event {
     }
 
     @Override
-    public void execute(State state){
-        super.execute(state);
+    public void execute(){
+        super.execute();
         state.update(this);
         state.stop();
     }

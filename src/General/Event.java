@@ -10,7 +10,7 @@ public abstract class Event {
         this.eventTime = eventTime;
         this.eventQueue = eventQueue;
     }
-    public void execute(State state){
+    public void execute(){
 
     }
     public double getEventTime(){

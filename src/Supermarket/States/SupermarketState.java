@@ -48,6 +48,7 @@ public class SupermarketState extends State {
         payTime = new PayTime(kMax, kMin, seed);
         pickTime = new PickTime(pMax, pMin, seed);
         checkoutQueue = new CheckoutQueue();
+        unUsedRegisters = maxOpenRegisters;
     }
 
         public int ChangedRegisters(){
@@ -99,6 +100,10 @@ public class SupermarketState extends State {
         return openRegisters;
     }
 
+
+    public void setUnUsedRegisters(int amount){
+        unUsedRegisters = amount;
+    }
     public int getUnUsedRegisters() {
         return unUsedRegisters;
     }
@@ -183,4 +188,5 @@ public class SupermarketState extends State {
     public double getPayTime(){
         return payTime.calculatePayTime(currentTime);
     }
+
 }

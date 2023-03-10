@@ -13,8 +13,8 @@ public class StartEvent extends Event{
     }
 
     @Override
-    public void execute(State state) {
-        super.execute(state);
+    public void execute() {
+        super.execute();
         state.update(this);
         eventQueue.addEvent(new ArrivalEvent(eventQueue, ((SupermarketState)state).getArrivalTime(),
                 ((SupermarketState)state).createCustomer(), ((SupermarketState)state)));

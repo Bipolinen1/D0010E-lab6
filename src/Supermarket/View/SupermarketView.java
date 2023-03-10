@@ -2,6 +2,8 @@ package Supermarket.View;
 import General.Event;
 import General.EventQueue;
 import General.View;
+import Supermarket.Events.CloseEvent;
+import Supermarket.Events.CustomerEvent;
 import Supermarket.Events.EndEvent;
 import Supermarket.Events.StartEvent;
 import Supermarket.States.SupermarketState;
@@ -63,12 +65,16 @@ public class SupermarketView extends View{
         else if(event instanceof EndEvent){
             writeEnd();
         }
+        else if (event instanceof CloseEvent){
+
+        }
         else {
+            CustomerEvent customerEvent = (CustomerEvent) event;
             System.out.println(String.format(
                     "%6.2f %-12s %-2d %s %4d %6.2f % 3d %3d %4d %5d %6.2f %6d %s",
                     state.getCurrentTime(),
                     event.getName(),
-                    state.getCurrentCustomerNumber(),
+                    customerEvent.getCustomer().getCustomerNumber(),
                     state.isClosed() ? "S" : "Ö",
                     state.getUnUsedRegisters(),
                     state.getUnUsedRegisterTime(),

@@ -10,4 +10,10 @@ public class CheckoutQueue extends FIFO {
     public void addCustomer(Customer customer){
         this.add(customer);
     }
+
+    public Customer getFirstCustomer(){
+        Customer customer = (Customer) super.first();
+        this.removeFirst();
+        return customer;
+    }
 }

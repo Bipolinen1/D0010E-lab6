@@ -11,7 +11,7 @@ import Supermarket.Random.UniformRandomStream;
             this.kMax = kMax;
             this.kMin = kMin;
             this.seed = seed;
-            rand = new UniformRandomStream(kMax, kMin, seed);
+            rand = new UniformRandomStream(kMin, kMax, seed);
 
         }
 

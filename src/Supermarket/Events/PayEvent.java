@@ -11,20 +11,25 @@ public class PayEvent extends CustomerEvent {
     }
 
     @Override
-    public void execute(State state) {
-        super.execute(state);
+    public void execute() {
+        super.execute();
         state.update(this);
         ((SupermarketState)state).removeCustomerInStore();
         ((SupermarketState)state).addTotalCustomer();
+        if(((SupermarketState)state).getCheckoutQueue().isEmpty()){
+            ((SupermarketState)state).setUnUsedRegisters(((SupermarketState)state).getUnUsedRegisters() + 1);
+        }
 
-        if(((SupermarketState)state).getCustomersInQueue() < 0){
-            ((SupermarketState)state).getCheckoutQueue().removeFirst();
-            ((SupermarketState)state).getOpenRegisters();
-        }else{
-            //TODO Minska antal lediga kassor med 1
+        if(((SupermarketState)state).getCheckoutQueue().size() > 0){
+            eventQueue.addEvent(new PayEvent(eventQueue,
+                    ((SupermarketState)state).getPayTime(), ((SupermarketState)state).getCheckoutQueue().getFirstCustomer(),
+                    ((SupermarketState)state)));
         }
     }
 
+    public Customer getCustomer(){
+        return this.customer;
+    }
     public String getName(){
         return "Pay";
     }

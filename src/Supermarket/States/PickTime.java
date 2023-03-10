@@ -10,7 +10,7 @@ public class PickTime {
         this.pMax = pMax;
         this.pMin = pMin;
         this.seed = seed;
-        rand = new UniformRandomStream(pMax, pMin, seed);
+        rand = new UniformRandomStream(pMin, pMax, seed);
     }
     public double calculatePickTime(double currentTime){
         return currentTime + rand.next(); //currentTime + rand.next() adds pMax, pMin and seed together

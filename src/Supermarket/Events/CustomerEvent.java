@@ -9,12 +9,15 @@ public abstract class CustomerEvent extends Event {
     protected Customer customer;
     public CustomerEvent(EventQueue eventQueue, double eventTime, Customer customer, State state) {
         super(eventQueue, eventTime, state);
+        this.customer = customer;
     }
 
     @Override
-    public void execute(State state){
-        super.execute(state);
+    public void execute(){
+        super.execute();
     }
 
-
+    public Customer getCustomer(){
+        return this.customer;
+    }
 }

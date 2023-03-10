@@ -18,9 +18,6 @@ public class RunSim {
                   long seed, double kMin, double kMax, double pMin, double pMax){
 
         eventQueue = new EventQueue();
-        eventQueue.addEvent(new StartEvent(eventQueue, openingTime, state));
-        eventQueue.addEvent(new CloseEvent(eventQueue, closingTime, state));
-        eventQueue.addEvent(new EndEvent(eventQueue, 999, state));
         System.out.println(eventQueue);
         state = new SupermarketState(
                 maxCustomers,
@@ -31,6 +28,10 @@ public class RunSim {
                 kMax,
                 pMin,
                 pMax);
+
+        eventQueue.addEvent(new StartEvent(eventQueue, openingTime, state));
+        eventQueue.addEvent(new CloseEvent(eventQueue, closingTime, state));
+        eventQueue.addEvent(new EndEvent(eventQueue, 999, state));
 
         SupermarketView view = new SupermarketView(state);
         state.addObserver(view);

@@ -12,23 +12,26 @@ public class ArrivalEvent extends CustomerEvent {
     }
 
     @Override
-    public void execute(State state) {
-        super.execute(state);
+    public void execute() {
+        super.execute();
         state.update(this);
-        if(((SupermarketState)state).getCustomersInStore() < ((SupermarketState)state).getMaxCustomers()) {
-            eventQueue.addEvent(new PickEvent(eventQueue, ((SupermarketState)state).getPickTime(),
-                    customer, ((SupermarketState)state)));
-            ((SupermarketState)state).addCustomerInStore();
-            if(!((SupermarketState)state).isClosed()){
-                eventQueue.addEvent(new ArrivalEvent(eventQueue, ((SupermarketState)state).getArrivalTime(),
-                        ((SupermarketState)state).createCustomer(), ((SupermarketState)state)));
-            }
+        if(!((SupermarketState)state).isClosed()){
+            if(((SupermarketState)state).getCustomersInStore() < ((SupermarketState)state).getMaxCustomers()) {
+                eventQueue.addEvent(new PickEvent(eventQueue, ((SupermarketState)state).getPickTime(),
+                        customer, ((SupermarketState)state)));
+                ((SupermarketState)state).addCustomerInStore();
 
+                }
+            eventQueue.addEvent(new ArrivalEvent(eventQueue, ((SupermarketState)state).getArrivalTime(),
+                    ((SupermarketState)state).createCustomer(), ((SupermarketState)state)));
         }
         else {
             ((SupermarketState)state).addMissedCustomer();
 
         }
+    }
+    public Customer getCustomer(){
+        return this.customer;
     }
 
     public String getName(){
