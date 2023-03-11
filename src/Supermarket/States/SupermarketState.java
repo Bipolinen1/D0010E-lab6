@@ -177,7 +177,7 @@ public class SupermarketState extends State {
         this.totalCustomers += 1;
     }
 
-    public double getTimeOfQueuedCustomers(){
+    public double getTotalQueueTime(){
         return totalQueueTime;
     }
     public int getTotalCustomers() {

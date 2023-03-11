@@ -82,7 +82,7 @@ public class SupermarketView extends View{
                     state.getPayedCustomers(),
                     state.getMissedCustomers(),
                     state.getCustomersThatQueued(),
-                    state.getTimeOfQueuedCustomers(),
+                    state.getTotalQueueTime(),
                     state.getCurrentlyQueuedCustomers(),
                     state.getCheckOutQueueString()
             ));
@@ -117,8 +117,8 @@ public class SupermarketView extends View{
                 (state.getUnUsedRegisterTime() / state.getUnUsedRegisters()),
                 ((state.getUnUsedRegisterTime() / state.getUnUsedRegisters()) / lastToPay) * 100,
                 state.getCustomersThatQueued(),
-                state.getTimeOfQueuedCustomers(),
-                (state.getTimeOfQueuedCustomers() / state.getCustomersThatQueued())
+                state.getTotalQueueTime(),
+                (state.getTotalQueueTime() / state.getCustomersThatQueued())
 
 
 

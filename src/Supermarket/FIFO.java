@@ -20,6 +20,10 @@ public class FIFO{
         }
     }
 
+    public Object get(int index){
+        return queue.get(index);
+    }
+
     public void removeFirst() throws NoSuchElementException {
         if(queue.size() == 0){
             throw new NoSuchElementException();
