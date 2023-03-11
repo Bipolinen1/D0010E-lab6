@@ -1,6 +1,6 @@
 package Supermarket.Events;
 /**
- * This class closes the supermarket
+ * This class closes the supermarket. It inherits the general Event class
  * @author Hampus Bensryd, Dominic Addo, Ossian Abrahamsson, Deborah Aittokallio
  */
 
@@ -11,7 +11,7 @@ import Supermarket.States.SupermarketState;
 
 public class CloseEvent extends Event{
     /**
-     *
+     * Instantiates a CloseEvent
      * @param eventQueue refernce to the eventQueue
      * @param eventTime the time the event should happen
      * @param state

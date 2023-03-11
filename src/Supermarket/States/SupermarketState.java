@@ -206,7 +206,7 @@ public class SupermarketState extends State {
         return payTime.calculatePayTime(currentTime);
     }
 
-    public void addPayedCustomer(){
+    public void addPaidCustomer(){
         payedCustomers += 1;
     }
     public double getPreviousTime() {
