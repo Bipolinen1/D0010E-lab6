@@ -101,7 +101,7 @@ public class SupermarketView extends View{
                           1) Av %d kunder handlade %d medan %d missades.
                            
                           2) Total tid %d kassor varit lediga: %.2f te.
-                             Genomsnittlig ledig kassatid: %f te (dvs %f%% av tiden från öppning tills sista kunden betalat).
+                             Genomsnittlig ledig kassatid: %.2f te (dvs %f%% av tiden från öppning tills sista kunden betalat).
                                
                           Total tid %d kunder tvingats köa: %.2f te.
                           Genomsnittlig kötid: %.2f te.
