@@ -24,6 +24,7 @@ public class ArrivalEvent extends CustomerEvent {
                 }
             else {
                 ((SupermarketState)state).addMissedCustomer();
+                ((SupermarketState)state).addTotalCustomer();
             }
             eventQueue.addEvent(new ArrivalEvent(eventQueue, ((SupermarketState)state).getArrivalTime(),
                     ((SupermarketState)state).createCustomer(), ((SupermarketState)state)));

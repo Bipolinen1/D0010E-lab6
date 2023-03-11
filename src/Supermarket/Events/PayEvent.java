@@ -15,7 +15,6 @@ public class PayEvent extends CustomerEvent {
         super.execute();
         state.update(this);
         ((SupermarketState)state).removeCustomerInStore();
-        ((SupermarketState)state).addTotalCustomer();
         ((SupermarketState)state).addPayedCustomer();
         if(((SupermarketState)state).getCheckoutQueue().isEmpty()){
             ((SupermarketState)state).setUnUsedRegisters(((SupermarketState)state).getUnUsedRegisters() + 1);
