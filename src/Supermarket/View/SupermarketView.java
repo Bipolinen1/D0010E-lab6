@@ -66,7 +66,22 @@ public class SupermarketView extends View{
             writeEnd();
         }
         else if (event instanceof CloseEvent){
-
+            System.out.println(String.format(
+                    "%6.2f %-12s %-2s %s %4d %6.2f % 3d %3d %4d %5d %6.2f %6d %s",
+                    state.getCurrentTime(),
+                    event.getName(),
+                    "---",
+                    state.isClosed() ? "S" : "Ö",
+                    state.getUnUsedRegisters(),
+                    state.getUnUsedRegisterTime(),
+                    state.getCustomersInStore(),
+                    state.getPayedCustomers(),
+                    state.getMissedCustomers(),
+                    state.getCustomersThatQueued(),
+                    state.getTimeOfQueuedCustomers(),
+                    state.getCurrentlyQueuedCustomers(),
+                    state.getCheckOutQueueString()
+            ));
         }
         else {
             CustomerEvent customerEvent = (CustomerEvent) event;

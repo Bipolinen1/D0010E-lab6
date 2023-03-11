@@ -37,7 +37,6 @@ public class RunSim {
         state.addObserver(view);
         simulator = new Simulator(eventQueue, state);
         simulator.run();
-        System.out.println(eventQueue);
     }
     public static void main(String[] args){
         RunSim runSim = new RunSim(0, 10.00, 5, 2, 1.0,
