@@ -10,10 +10,12 @@ import Supermarket.View.SupermarketView;
 
 public class Optimize {
      public static void main(String [] args){
-
+          int result = findMinRegistersSeed(0, 10.00, 5, 1.0,
+                  1234, 2.0, 3.0, 0.5, 1.0);
+          System.out.println("Result: " + result);
      }
 
-     public SupermarketState runSimulationOnce(
+     public static SupermarketState runSimulationOnce(
              double openingTime, double closingTime, int maxCustomers, int maxOpenRegisters, double lambda,
              long seed, double kMin, double kMax, double pMin, double pMax){
           EventQueue eventQueue = new EventQueue();
@@ -36,25 +38,9 @@ public class Optimize {
           return state;
      }
 
-     public int findMinRegistersSeed(double openingTime, double closingTime, int maxCustomers,
+     public static int findMinRegistersSeed(double openingTime, double closingTime, int maxCustomers,
                                                   double lambda, long seed, double kMin, double kMax, double pMin,
-                                                  double pMax){
-          int counter = 0;
-          int amountOfRegisters = 1;
-          int bestAmountOfRegisters = runSimulationOnce(openingTime, closingTime, maxCustomers, amountOfRegisters,
-                  lambda, seed, kMin, kMax, pMin, pMax).getMissedCustomers();
-          while(counter < 100){
-               if(runSimulationOnce(openingTime, closingTime, maxCustomers, amountOfRegisters,
-                       lambda, seed, kMin, kMax, pMin, pMax).getMissedCustomers() < bestAmountOfRegisters){
-                    bestAmountOfRegisters = runSimulationOnce(openingTime, closingTime, maxCustomers, amountOfRegisters,
-                            lambda, seed, kMin, kMax, pMin, pMax).getMissedCustomers();
-                    counter = 0;
-               }
-               else{
-                    counter++;
-               }
-               amountOfRegisters++;
-          }
-          return bestAmountOfRegisters;
+                                                  double pMax) {
+          return 0;
      }
 }
