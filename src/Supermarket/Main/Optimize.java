@@ -35,4 +35,26 @@ public class Optimize {
           simulator.run();
           return state;
      }
+
+     public int findMinRegistersSeed(double openingTime, double closingTime, int maxCustomers,
+                                                  double lambda, long seed, double kMin, double kMax, double pMin,
+                                                  double pMax){
+          int counter = 0;
+          int amountOfRegisters = 1;
+          int bestAmountOfRegisters = runSimulationOnce(openingTime, closingTime, maxCustomers, amountOfRegisters,
+                  lambda, seed, kMin, kMax, pMin, pMax).getMissedCustomers();
+          while(counter < 100){
+               if(runSimulationOnce(openingTime, closingTime, maxCustomers, amountOfRegisters,
+                       lambda, seed, kMin, kMax, pMin, pMax).getMissedCustomers() < bestAmountOfRegisters){
+                    bestAmountOfRegisters = runSimulationOnce(openingTime, closingTime, maxCustomers, amountOfRegisters,
+                            lambda, seed, kMin, kMax, pMin, pMax).getMissedCustomers();
+                    counter = 0;
+               }
+               else{
+                    counter++;
+               }
+               amountOfRegisters++;
+          }
+          return bestAmountOfRegisters;
+     }
 }
