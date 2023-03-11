@@ -3,6 +3,7 @@ package General;
 import java.util.Observable;
 
 public class State extends Observable{
+    protected double previousTime;
     protected double currentTime;
     protected boolean stopped;
 
@@ -30,6 +31,7 @@ public class State extends Observable{
 
     //TODO Skriv en metod update som ändrar tid och meddelar observers
     public void update(Event event){
+        this.previousTime = currentTime;
         this.setCurrentTime(event.getEventTime());
         this.setChanged();
         this.notifyObservers(event);

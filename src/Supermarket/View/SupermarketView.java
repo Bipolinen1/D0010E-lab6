@@ -70,6 +70,7 @@ public class SupermarketView extends View{
         }
         else {
             CustomerEvent customerEvent = (CustomerEvent) event;
+            state.updateT();
             System.out.println(String.format(
                     "%6.2f %-12s %-2d %s %4d %6.2f % 3d %3d %4d %5d %6.2f %6d %s",
                     state.getCurrentTime(),
@@ -82,7 +83,7 @@ public class SupermarketView extends View{
                     state.getPayedCustomers(),
                     state.getMissedCustomers(),
                     state.getCustomersThatQueued(),
-                    state.getTotalQueueTime(),
+                    state.getTimeOfQueuedCustomers(),
                     state.getCurrentlyQueuedCustomers(),
                     state.getCheckOutQueueString()
             ));
@@ -117,8 +118,8 @@ public class SupermarketView extends View{
                 (state.getUnUsedRegisterTime() / state.getUnUsedRegisters()),
                 ((state.getUnUsedRegisterTime() / state.getUnUsedRegisters()) / lastToPay) * 100,
                 state.getCustomersThatQueued(),
-                state.getTotalQueueTime(),
-                (state.getTotalQueueTime() / state.getCustomersThatQueued())
+                state.getTimeOfQueuedCustomers(),
+                (state.getTimeOfQueuedCustomers() / state.getCustomersThatQueued())
 
 
 

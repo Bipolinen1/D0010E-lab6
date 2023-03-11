@@ -177,7 +177,21 @@ public class SupermarketState extends State {
         this.totalCustomers += 1;
     }
 
-    public double getTotalQueueTime(){
+    private void updateTimeOfQueuedCustomers() {
+        if(!checkoutQueue.isEmpty()) {
+            totalQueueTime += (currentTime - previousTime) * checkoutQueue.size();
+        }
+    }
+    private void updateUnUsedRegisterTime() {
+        if(unUsedRegisters != 0) {
+            unUsedRegisterTime += (currentTime - previousTime) * unUsedRegisters;
+        }
+    }
+    public void updateT() {
+        updateUnUsedRegisterTime();
+        updateTimeOfQueuedCustomers();
+    }
+    public double getTimeOfQueuedCustomers(){
         return totalQueueTime;
     }
     public int getTotalCustomers() {
@@ -195,5 +209,9 @@ public class SupermarketState extends State {
     public void addPayedCustomer(){
         payedCustomers += 1;
     }
+    public double getPreviousTime() {
+        return previousTime;
+    }
+
 
 }
