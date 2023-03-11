@@ -41,6 +41,9 @@ public class Optimize {
      public static int findMinRegistersSeed(double openingTime, double closingTime, int maxCustomers,
                                                   double lambda, long seed, double kMin, double kMax, double pMin,
                                                   double pMax) {
+          int counter = 0;
+          int numberOfRegisters = 0;
+
           return 0;
      }
 }
