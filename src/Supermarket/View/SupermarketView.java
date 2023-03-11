@@ -66,8 +66,9 @@ public class SupermarketView extends View{
             writeEnd();
         }
         else if (event instanceof CloseEvent){
+            state.updateT();
             System.out.println(String.format(
-                    "%6.2f %-12s %-2s %s %4d %6.2f % 3d %3d %4d %5d %6.2f %6d %s",
+                    "%6.2f %-9s %4s %2s %4d %6.2f % 3d %3d %4d %5d %6.2f %6d %s",
                     state.getCurrentTime(),
                     event.getName(),
                     "---",
@@ -87,7 +88,7 @@ public class SupermarketView extends View{
             CustomerEvent customerEvent = (CustomerEvent) event;
             state.updateT();
             System.out.println(String.format(
-                    "%6.2f %-12s %-2d %s %4d %6.2f % 3d %3d %4d %5d %6.2f %6d %s",
+                    "%6.2f %-9s %4d %2s %4d %6.2f %3d %3d %4d %5d %6.2f %6d %s",
                     state.getCurrentTime(),
                     event.getName(),
                     customerEvent.getCustomer().getCustomerNumber(),
