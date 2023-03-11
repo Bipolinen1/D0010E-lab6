@@ -18,7 +18,6 @@ public class RunSim {
                   long seed, double kMin, double kMax, double pMin, double pMax){
 
         eventQueue = new EventQueue();
-        System.out.println(eventQueue);
         state = new SupermarketState(
                 maxCustomers,
                 maxOpenRegisters,
