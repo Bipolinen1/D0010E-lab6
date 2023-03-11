@@ -21,6 +21,9 @@ public class PickEvent extends CustomerEvent {
                     ((SupermarketState)state).getPayTime(), ((SupermarketState)state).getCheckoutQueue().getFirstCustomer(),
                     ((SupermarketState)state)));
         }
+        else{
+            ((SupermarketState)state).addTotalQueuedCustomers();
+        }
     }
 
     public Customer getCustomer(){

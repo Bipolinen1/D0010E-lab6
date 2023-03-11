@@ -22,11 +22,11 @@ public class ArrivalEvent extends CustomerEvent {
                 ((SupermarketState)state).addCustomerInStore();
 
                 }
+            else {
+                ((SupermarketState)state).addMissedCustomer();
+            }
             eventQueue.addEvent(new ArrivalEvent(eventQueue, ((SupermarketState)state).getArrivalTime(),
                     ((SupermarketState)state).createCustomer(), ((SupermarketState)state)));
-        }
-        else {
-            ((SupermarketState)state).addMissedCustomer();
 
         }
     }

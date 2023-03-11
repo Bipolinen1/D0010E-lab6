@@ -16,4 +16,9 @@ public class CheckoutQueue extends FIFO {
         this.removeFirst();
         return customer;
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

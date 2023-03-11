@@ -84,7 +84,7 @@ public class SupermarketView extends View{
                     state.getCustomersThatQueued(),
                     state.getTimeOfQueuedCustomers(),
                     state.getCurrentlyQueuedCustomers(),
-                    state.getCheckoutQueue()
+                    state.getCheckOutQueueString()
             ));
         }
 

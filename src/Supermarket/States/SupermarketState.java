@@ -16,10 +16,10 @@ public class SupermarketState extends State {
     private int payedCustomers = 0;
     private int missedCustomers = 0;
     private int unUsedRegisters; //lediga kassor
-    private int UsedRegisters;  //upptagna kassor
+
     private double unUsedRegisterTime = 0;
     private double totalQueueTime = 0;
-    private int ChangedRegisters;
+
     private boolean closed;
     private double lambda;
     private long seed;
@@ -28,7 +28,7 @@ public class SupermarketState extends State {
     private double pMin;
     private double pMax;
 
-    public int customersthatQueued = 0;
+    public int totalQueuedCustomers = 0;
 
     // Lambda är genomstnittliga antalet kunder på ett visst tidsintervall
     // Seed är ett tal som används vid slumpgenerering
@@ -108,9 +108,8 @@ public class SupermarketState extends State {
         return unUsedRegisters;
     }
 
-    public void setCustomersInQueue(){
-        customersInQueue = checkoutQueue.size();
-        customersthatQueued += 1;
+    public void addTotalQueuedCustomers(){
+        totalQueuedCustomers += 1;
     }
 
     public int getCustomersInQueue() {
@@ -119,6 +118,10 @@ public class SupermarketState extends State {
 
     public CheckoutQueue getCheckoutQueue() {
         return checkoutQueue;
+    }
+
+    public String getCheckOutQueueString(){
+        return checkoutQueue.toString();
     }
 
     public double getLambda(){
@@ -162,7 +165,7 @@ public class SupermarketState extends State {
     }
 
     public int getCustomersThatQueued(){
-        return customersthatQueued;
+        return totalQueuedCustomers;
     }
 
 
@@ -187,6 +190,10 @@ public class SupermarketState extends State {
 
     public double getPayTime(){
         return payTime.calculatePayTime(currentTime);
+    }
+
+    public void addPayedCustomer(){
+        payedCustomers += 1;
     }
 
 }
