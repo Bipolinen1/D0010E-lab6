@@ -26,7 +26,10 @@ public class SupermarketView extends View{
         this.state = state;
     }
 
-
+    /**
+     * writeStart() prints the starting information of the program, which includes number of registers, maximum number
+     * customers, the rate of customers, range of pick time, range of pay time, and the seed.
+     */
     private void writeStart(Observable o, Object arg) {
         Event event = (Event) arg;
         System.out.println(String.format(
@@ -57,6 +60,15 @@ public class SupermarketView extends View{
         ));
 
     }
+
+    /**
+     * writeState() ether calls writeStart() if the program is starting, writeEnd() if the program is closing or
+     * its main funcktionality of printing out the information of the current event.
+     * Which includes current time, event, customer, if store is open, number of unused registers, time of unused registers
+     * --- customers that payed, missed customers, number of customers who queued, total queue time, how many are queueing
+     * and who is queuing.
+     * In addition it also calls updateT() to update time events and calls setLastToPay to store the last paying customer.
+     */
     private void writeState(Observable o, Object arg) {
         Event event = (Event) arg;
 
@@ -113,6 +125,10 @@ public class SupermarketView extends View{
 
     }
 
+    /**
+     * writeEnd() prints out the information about the number how customers that payed, that was missed,
+     *  that needed to queue, the time spent queueing, and how long a number of registers has been opened.
+     */
     private void writeEnd() {
         System.out.println(String.format(
                 """
