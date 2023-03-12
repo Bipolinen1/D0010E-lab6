@@ -26,7 +26,7 @@ public class Optimize {
           System.out.println("Smallest amount of registers yielding least missed customers: "  + result);*/
           int result = findMinRegisters(0, K.END_TIME, K.STOP_TIME, K.M, K.L,
                   K.LOW_PAYMENT_TIME, K.HIGH_PAYMENT_TIME, K.LOW_COLLECTION_TIME, K.HIGH_COLLECTION_TIME);
-          System.out.println(result);
+          System.out.println("Smallest amount of registers yielding least missed customers: "  + result);
      }
 
      /**
