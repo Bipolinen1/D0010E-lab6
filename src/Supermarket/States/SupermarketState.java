@@ -73,14 +73,14 @@ public class SupermarketState extends State {
     }
 
     /**
-     *  getMaxCustomers() returns the maximum number of customers.
+     *  @return the maximum number of customers.
      */
     public int getMaxCustomers() {
         return maxCustomers;
     }
 
     /**
-     *  getCustomersInStore() returns the number of customers in the store.
+     *  @return the number of customers in the store.
      */
     public int getCustomersInStore() {
         return customersInStore;
@@ -111,7 +111,7 @@ public class SupermarketState extends State {
     }
 
     /**
-     *  isClosed() returns a true or false depending on if the store is closed or not.
+     *  @return a true or false depending on if the store is closed or not.
      */
     public boolean isClosed() {
         return closed;
@@ -133,14 +133,14 @@ public class SupermarketState extends State {
 
 
     /**
-     *  getArrivalTime() returns time of a customer's arrival.
+     *  @return  time of a customer's arrival.
      */
     public double getArrivalTime() {
         return arrivalTime.calculateArrivalTime(getCurrentTime());
     }
 
     /**
-     *  getOpenRegisters() returns the number of registers.
+     *  @return the number of registers.
      */
     public int getOpenRegisters() {
         return openRegisters;
@@ -156,7 +156,7 @@ public class SupermarketState extends State {
     }
 
     /**
-     *  getUnUsedRegisters() returns the number of unused registers.
+     *  @return  the number of unused registers.
      */
     public int getUnUsedRegisters() {
         return unUsedRegisters;
@@ -170,14 +170,14 @@ public class SupermarketState extends State {
     }
 
     /**
-     *  getCheckoutQueue() returns the check out queue.
+     *  @return the check out queue.
      */
     public CheckoutQueue getCheckoutQueue() {
         return checkoutQueue;
     }
 
     /**
-     *  getCheckOutQueueString() returns the check out queue in form of a string.
+     *  @return  the check out queue in form of a string.
      */
     public String getCheckOutQueueString(){
         return checkoutQueue.toString();
@@ -185,14 +185,14 @@ public class SupermarketState extends State {
 
 
     /**
-     *  getLambda() returns the number dictating how often customers arrives.
+     *  @return  the number dictating how often customers arrives.
      */
     public double getLambda(){
         return lambda;
     }
 
     /**
-     *  getSeed() returns the current seed used for random.
+     *  @return the current seed used for random.
      */
     public long getSeed() {
         return seed;
@@ -200,49 +200,49 @@ public class SupermarketState extends State {
 
 
     /**
-     *  getkMin() returns the minimum value that pay time can get.
+     *  @return  the minimum value that pay time can get.
      */
     public double getkMin() {
         return kMin;
     }
 
     /**
-     *  getkMax() returns the maximum value that pay time can get.
+     *  @return  the maximum value that pay time can get.
      */
     public double getkMax() {
         return kMax;
     }
 
     /**
-     *  getpMin() returns the minimum value that pick time can get.
+     *  @return  the minimum value that pick time can get.
      */
     public double getpMin(){
         return pMin;
     }
 
     /**
-     *  getpMax() returns the maximum value that pick time can get.
+     *  @return  the maximum value that pick time can get.
      */
     public double getpMax() {
         return pMax;
     }
 
     /**
-     *  getMissedCustomers() returns the total number of customers that was missed.
+     * @return the total number of customers that was missed.
      */
     public int getMissedCustomers() {
         return missedCustomers;
     }
 
     /**
-     *  getPayedCustomers() returns the total number of customers that has payed.
+     *  @return the total number of customers that has payed.
      */
     public int getPayedCustomers() {
         return payedCustomers;
     }
 
     /**
-     *  getCurrentlyQueuedCustomers() returns the total number of customers that are currently queueing so long the queue
+     *  @return the total number of customers that are currently queueing so long the queue
      *  is not empty.
      */
     public int getCurrentlyQueuedCustomers() {
@@ -253,14 +253,14 @@ public class SupermarketState extends State {
     }
 
     /**
-     *  getCustomersThatQueued() returns the total number of customers that has ever queued.
+     *  @return  the total number of customers that has ever queued.
      */
     public int getCustomersThatQueued(){
         return totalQueuedCustomers;
     }
 
     /**
-     *  getUnUsedRegisterTime() returns the total time that registers has been unused.
+     *  @return  the total time that registers has been unused.
      */
     public double getUnUsedRegisterTime(){
         return unUsedRegisterTime;
@@ -306,28 +306,28 @@ public class SupermarketState extends State {
     }
 
     /**
-     *  getTimeOfQueuedCustomers() returns the total time customers has queued.
+     *  @return  the total time customers has queued.
      */
     public double getTimeOfQueuedCustomers(){
         return totalQueueTime;
     }
 
     /**
-     * getTotalCustomers() returns the total number of customers that has arrived.
+     * @return  the total number of customers that has arrived.
      */
     public int getTotalCustomers() {
         return totalCustomers;
     }
 
     /**
-     * getPickTime()  returns the time of pick for a customer, by calling calculatePayTime with the parameter currentTime.
+     * @return  the time of pick for a customer, by calling calculatePayTime with the parameter currentTime.
      */
     public double getPickTime() {
         return pickTime.calculatePickTime(currentTime);
     }
 
     /**
-     * getPayTime() returns the time of payment for a customer, by calling calculatePayTime with the parameter currentTime.
+     * @return the time of payment for a customer, by calling calculatePayTime with the parameter currentTime.
      */
     public double getPayTime(){
         return payTime.calculatePayTime(currentTime);
@@ -348,7 +348,7 @@ public class SupermarketState extends State {
     }
 
     /**
-     *  getLastToPay() Returns the time of the last pay event.
+     *  @return the time of the last pay event.
      */
     public double getLastToPay() {
         return lastToPay;
