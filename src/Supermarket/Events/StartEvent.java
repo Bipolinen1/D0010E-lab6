@@ -21,6 +21,9 @@ public class StartEvent extends Event{
         super(eventQueue, eventTime, state);
     }
 
+    /**
+     * The effect of the event. Adds the first ArrivalEvent to eventQueue
+     */
     @Override
     public void execute() {
         super.execute();
@@ -31,6 +34,10 @@ public class StartEvent extends Event{
 
     }
 
+    /**
+     * Returns what type of event it is
+     * @return the name of the event
+     */
     public String getName(){
         return "Start";
     }

@@ -6,6 +6,10 @@ package General;
 import java.util.ArrayList;
 
 public class EventQueue extends ArrayList<Event>{
+
+    /**
+     * Instantiates an EventQueue
+     */
     public EventQueue(){
         super();
     }
@@ -35,12 +39,9 @@ public class EventQueue extends ArrayList<Event>{
         }
     }
 
-    public Event getNextEvent(){
-         Event event = this.get(0);
-         this.remove(0);
-         return event;
-    }
-
+    /**
+     * Removes the event on index 0 from the EventQueue
+     */
     public void removeEvent(){
         this.remove(0);
     }

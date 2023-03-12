@@ -10,10 +10,17 @@ public class State extends Observable{
     protected double currentTime;
     protected boolean stopped;
 
+    /**
+     * Creates an instance of State, sets stopped to false
+     */
     public State(){
         this.stopped = false;
     }
 
+    /**
+     * Returns the currentTime
+     * @return currentTime
+     */
     public double getCurrentTime(){
         return currentTime;
     }
@@ -23,9 +30,6 @@ public class State extends Observable{
      * @param time the new time
      */
     public void setCurrentTime(double time){
-        //if(time < this.getCurrentTime()){
-        //    throw new RuntimeException("Can't go back in time");
-        //}
         currentTime = time;
     }
 

@@ -20,6 +20,9 @@ public class CloseEvent extends Event{
         super(eventQueue, eventTime, state);
     }
 
+    /**
+     * The effect CloseEvent has. Closes the store
+     */
     @Override
     public void execute() {
         super.execute();
@@ -28,7 +31,10 @@ public class CloseEvent extends Event{
 
     }
 
-
+    /**
+     *
+     * @return the name of the event
+     */
     public String getName(){
         return "Close";
     }

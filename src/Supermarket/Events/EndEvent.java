@@ -21,6 +21,9 @@ public class EndEvent extends Event {
         super(eventQueue, eventTime, state);
     }
 
+    /**
+     * The effect the event has. Stops the simulation
+     */
     @Override
     public void execute(){
         super.execute();
@@ -28,6 +31,10 @@ public class EndEvent extends Event {
         // Stops the simulation
         state.stop();
     }
+    /**
+     * Returns what type of event it is
+     * @return the name of the event
+     */
     public String getName(){
         return "End";
     }

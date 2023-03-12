@@ -21,6 +21,9 @@ public class PayEvent extends CustomerEvent {
         super(eventQueue, eventTime, customer, state);
     }
 
+    /**
+     * The effect of the event.
+     */
     @Override
     public void execute() {
         super.execute();
@@ -42,9 +45,18 @@ public class PayEvent extends CustomerEvent {
         }
     }
 
+    /**
+     * Gets the customer associated with the event
+     * @return customer
+     */
     public Customer getCustomer(){
         return this.customer;
     }
+
+    /**
+            * Returns what type of event it is
+     * @return the name of the event
+     */
     public String getName(){
         return "Pay";
     }

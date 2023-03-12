@@ -22,6 +22,9 @@ public class PickEvent extends CustomerEvent {
         super(eventQueue, eventTime, customer, state);
     }
 
+    /**
+     * The effect of the event
+     */
     @Override
     public void execute() {
         super.execute();
@@ -40,10 +43,18 @@ public class PickEvent extends CustomerEvent {
         }
     }
 
+    /**
+     * Gets the customer for the event
+     * @return csutomer
+     */
     public Customer getCustomer(){
         return this.customer;
     }
 
+    /**
+     * Returns what type of event it is
+     * @return the name of the event
+     */
     public String getName(){
         return "Pick";
     }

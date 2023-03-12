@@ -26,11 +26,18 @@ public abstract class CustomerEvent extends Event {
         this.customer = customer;
     }
 
+    /**
+     * The effect the event has
+     */
     @Override
     public void execute(){
         super.execute();
     }
 
+    /**
+     * Gets the customer
+     * @return customer
+     */
     public Customer getCustomer(){
         return this.customer;
     }

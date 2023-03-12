@@ -24,6 +24,9 @@ public class ArrivalEvent extends CustomerEvent {
         super(eventQueue, eventTime, customer, state);
     }
 
+    /**
+     * The effect a ArrivalEvent has. It adds PickEvents and ArrivalEvents
+     */
     @Override
     public void execute() {
         super.execute();
@@ -48,12 +51,18 @@ public class ArrivalEvent extends CustomerEvent {
                     ((SupermarketState)state).createCustomer(), ((SupermarketState)state)));
         }
     }
-    // Returns the customer
+
+    /**
+     * Returns the customer
+     */
     public Customer getCustomer(){
         return this.customer;
     }
 
-    // Returns what type of event it is
+    /**
+     * Returns what type of event it is
+     * @return the name of the event
+     */
     public String getName(){
         return "Arrival";
     }
