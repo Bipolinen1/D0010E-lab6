@@ -68,7 +68,6 @@ public interface K {
 
     public static final double LOW_PAYMENT_TIME = 0.2d;
     public static final double HIGH_PAYMENT_TIME = 0.3d;
-
     public static final int SEED = 42;
     public static final double END_TIME = 20.0d;
     public static final double STOP_TIME = 999.0d;

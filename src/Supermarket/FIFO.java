@@ -1,5 +1,6 @@
 package Supermarket;
 /**
+ * A First in first out queue, is inherited by CheckoutQueue
  * @author Hampus Bensryd, Dominic Addo, Ossian Abrahamsson, Deborah Aittokallio
  */
 import java.util.ArrayList;
@@ -10,11 +11,18 @@ public class FIFO{
     private String stringObjects;
     private int max = 0;
 
+    /**
+     * Instantiates FIFO
+     */
     public FIFO(){
         this.queue = new ArrayList<>();
 
     }
 
+    /**
+     * Adds a object to the queue
+     * @param o the object to be added
+     */
     public void add(Object o) {
         queue.add(o);
         if(max < queue.size()){
@@ -22,10 +30,19 @@ public class FIFO{
         }
     }
 
+    /**
+     * Gets an object from the queue
+     * @param index the index of the object that should be returned
+     * @return the object at index
+     */
     public Object get(int index){
         return queue.get(index);
     }
 
+    /**
+     * Removes the first element in the queue
+     * @throws NoSuchElementException
+     */
     public void removeFirst() throws NoSuchElementException {
         if(queue.size() == 0){
             throw new NoSuchElementException();
@@ -33,6 +50,11 @@ public class FIFO{
         queue.remove(0);
     }
 
+    /**
+     * Gets the first element in the list
+     * @return the element at index 0
+     * @throws NoSuchElementException
+     */
     public Object first() throws NoSuchElementException {
         if(queue.size() == 0){
             throw new NoSuchElementException();
@@ -40,10 +62,10 @@ public class FIFO{
         return queue.get(0);
     }
 
-    public int maxSize() {
-        return max;
-    }
-
+    /**
+     * Checks if the queue is empty
+     * @return true or false depending on if the queue is empty or not
+     */
     public boolean isEmpty() {
         if(queue.size() == 0){
             return true;
@@ -51,9 +73,14 @@ public class FIFO{
         return false;
     }
 
+    /**
+     * Gets the size of the queue
+     * @return the size of the queue
+     */
     public int size() {
         return queue.size();
     }
+
 
     @Override
     public boolean equals(Object f) throws ClassCastException{
@@ -79,7 +106,10 @@ public class FIFO{
         return false;
     }
 
-
+    /**
+     * Returns the queue as a string. Isn't used
+     * @return the queue as a string
+     */
     @Override
     public String toString() {
         stringObjects = "";
