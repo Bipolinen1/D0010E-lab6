@@ -92,7 +92,7 @@ public class Optimize {
           int lowestMissed = runSimulationOnce(openingTime, closingTime, stopTime, maxCustomers, numberOfRegisters,
                   lambda, seed, kMin, kMax, pMin, pMax).getMissedCustomers();
           // Loops until same result 10 times
-          while(counter < 10){
+          while(counter < 20){
                // updates lowestMissed, bestAmountOfRegister and counter if the simulation yields a better result
                if(runSimulationOnce(openingTime, closingTime, stopTime, maxCustomers, numberOfRegisters,
                        lambda, seed, kMin, kMax, pMin, pMax).getMissedCustomers() < lowestMissed){
@@ -123,10 +123,8 @@ public class Optimize {
                        lambda, rand.nextInt(), kMin, kMax, pMin, pMax);
                if(currentRegisters <= minRegisters){
                     counter++;
-                    System.out.println(counter);
                }
                else{
-                    System.out.println(minRegisters);
                     minRegisters = currentRegisters;
                     counter = 0;
                }
