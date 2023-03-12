@@ -33,6 +33,17 @@ public class SupermarketState extends State {
 
     public int totalQueuedCustomers = 0;
 
+    /**
+     * Creates an instance of SupermarketState.
+     * @param maxCustomers the max number of customers.
+     * @param maxOpenRegisters the max number of registers.
+     * @param lambda is the rate of customers arriving.
+     * @param seed is the number used for selective randomising.
+     * @param kMin minimum value that pay time can attain.
+     * @param kMax maximum value that pay time can attain.
+     * @param pMin minimum value that pick time can attain.
+     * @param pMax maximum value that pick time can attain.
+     */
     // Lambda är genomstnittliga antalet kunder på ett visst tidsintervall
     // Seed är ett tal som används vid slumpgenerering
     public SupermarketState(int maxCustomers, int maxOpenRegisters, double lambda, long seed, double kMin,
