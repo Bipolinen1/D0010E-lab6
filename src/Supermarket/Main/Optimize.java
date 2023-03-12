@@ -64,4 +64,8 @@ public class Optimize {
           }
           return bestAmountOfRegisters;
      }
+
+     public static int finMinRegisters(){
+
+     }
 }

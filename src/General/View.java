@@ -1,5 +1,6 @@
 package General;
 /**
+ * General observer. Implements Observer
  * @author Hampus Bensryd, Dominic Addo, Ossian Abrahamsson, Deborah Aittokallio
  */
 import java.util.Observable;
