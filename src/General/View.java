@@ -1,5 +1,7 @@
 package General;
-
+/**
+ * @author Hampus Bensryd, Dominic Addo, Ossian Abrahamsson, Deborah Aittokallio
+ */
 import java.util.Observable;
 import java.util.Observer;
 

@@ -1,5 +1,7 @@
 package Supermarket;
-
+/**
+ * @author Hampus Bensryd, Dominic Addo, Ossian Abrahamsson, Deborah Aittokallio
+ */
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 

@@ -1,4 +1,7 @@
 package Supermarket.States;
+/**
+ * @author Hampus Bensryd, Dominic Addo, Ossian Abrahamsson, Deborah Aittokallio
+ */
 import Supermarket.Random.UniformRandomStream;
 public class PickTime {
     private double pMin;

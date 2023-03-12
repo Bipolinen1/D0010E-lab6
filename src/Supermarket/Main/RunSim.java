@@ -1,4 +1,7 @@
 package Supermarket.Main;
+/**
+ * @author Hampus Bensryd, Dominic Addo, Ossian Abrahamsson, Deborah Aittokallio
+ */
 import General.EventQueue;
 import General.Simulator;
 import Supermarket.Events.CloseEvent;

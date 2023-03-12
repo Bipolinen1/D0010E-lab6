@@ -1,5 +1,7 @@
 package General;
-
+/**
+ * @author Hampus Bensryd, Dominic Addo, Ossian Abrahamsson, Deborah Aittokallio
+ */
 import java.util.Observable;
 
 public class State extends Observable{

@@ -1,5 +1,7 @@
 package Supermarket.States;
-
+/**
+ * @author Hampus Bensryd, Dominic Addo, Ossian Abrahamsson, Deborah Aittokallio
+ */
 import General.State;
 
 public class SupermarketState extends State {

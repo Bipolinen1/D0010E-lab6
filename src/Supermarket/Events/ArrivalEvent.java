@@ -18,6 +18,7 @@ public class ArrivalEvent extends CustomerEvent {
      * @param eventTime the time the event occurs
      * @param customer the customer associated with the event
      * @param state the state
+     * @author Hampus Bensryd, Dominic Addo, Ossian Abrahamsson, Deborah Aittokallio
      */
     public ArrivalEvent(EventQueue eventQueue, double eventTime, Customer customer, SupermarketState state) {
         super(eventQueue, eventTime, customer, state);

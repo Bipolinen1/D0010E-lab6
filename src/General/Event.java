@@ -1,5 +1,7 @@
 package General;
-
+/**
+ * @author Hampus Bensryd, Dominic Addo, Ossian Abrahamsson, Deborah Aittokallio
+ */
 public abstract class Event {
     protected double eventTime;
     protected EventQueue eventQueue;

@@ -1,4 +1,7 @@
 package Supermarket.View;
+/**
+ * @author Hampus Bensryd, Dominic Addo, Ossian Abrahamsson, Deborah Aittokallio
+ */
 import General.Event;
 import General.EventQueue;
 import General.View;

@@ -1,5 +1,7 @@
 package General;
-
+/**
+ * @author Hampus Bensryd, Dominic Addo, Ossian Abrahamsson, Deborah Aittokallio
+ */
 public class Simulator {
     protected EventQueue eventQueue;
     protected State state;
