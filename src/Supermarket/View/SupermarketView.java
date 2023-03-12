@@ -1,5 +1,6 @@
 package Supermarket.View;
 /**
+ * Supermarket view handles the printing of information about the program printing out the start, each state and end.
  * @author Hampus Bensryd, Dominic Addo, Ossian Abrahamsson, Deborah Aittokallio
  */
 import General.Event;

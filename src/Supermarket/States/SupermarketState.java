@@ -1,5 +1,6 @@
 package Supermarket.States;
 /**
+ * The spesific state which stores spesific varables and contains getters and setters for the values.
  * @author Hampus Bensryd, Dominic Addo, Ossian Abrahamsson, Deborah Aittokallio
  */
 import General.State;
