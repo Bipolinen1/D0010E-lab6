@@ -16,9 +16,10 @@ public class SupermarketState extends State {
     private int payedCustomers = 0;
     private int missedCustomers = 0;
     private int unUsedRegisters; //lediga kassor
-
+    private double lastToPay;
     private double unUsedRegisterTime = 0;
     private double totalQueueTime = 0;
+    private double lastPayTime = 0;
 
     private boolean closed;
     private double lambda;
@@ -211,6 +212,12 @@ public class SupermarketState extends State {
     }
     public double getPreviousTime() {
         return previousTime;
+    }
+    public void setLastToPay() {
+        lastToPay = currentTime;
+    }
+    public double getLastToPay() {
+        return lastToPay;
     }
 
 

@@ -17,7 +17,6 @@ public class SupermarketView extends View{
     //TODO Vid stopp skrivs tid och händelsenamn ut. Därefter en rubrik resultat med statistik
     //TODO Skrive en update() metod som uppdaterar vad som visas
     private SupermarketState state;
-    private double lastToPay;
     private EventQueue eventQueue;
     public  SupermarketView(SupermarketState state){
         super();
@@ -88,6 +87,9 @@ public class SupermarketView extends View{
             CustomerEvent customerEvent = (CustomerEvent) event;
             if(state.getCustomersInStore() > 0 || !state.isClosed()){
                 state.updateT();}
+            if(event.getName() == "Pay") {
+                state.setLastToPay();
+            }
             System.out.println(String.format(
                     "%6.2f %-9s %4d %2s %4d %6.2f %3d %3d %4d %5d %6.2f %6d    %s",
                     state.getCurrentTime(),
@@ -133,7 +135,7 @@ public class SupermarketView extends View{
                 state.getUnUsedRegisters(),
                 state.getUnUsedRegisterTime(),
                 (state.getUnUsedRegisterTime() / state.getUnUsedRegisters()),
-                ((state.getUnUsedRegisterTime() / state.getUnUsedRegisters()) / state.getPreviousTime()) * 100, //Något fel här? Funkar inte för test 2
+                ((state.getUnUsedRegisterTime() / state.getUnUsedRegisters()) / state.getLastToPay()) * 100, //Något fel här? Funkar inte för test 2
                 state.getCustomersThatQueued(),
                 state.getTimeOfQueuedCustomers(),
                 (state.getTimeOfQueuedCustomers() / state.getCustomersThatQueued())
