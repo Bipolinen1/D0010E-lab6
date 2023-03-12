@@ -38,7 +38,9 @@ public class RunSim {
         simulator.run();
     }
     public static void main(String[] args){
-        RunSim runSim = new RunSim(0, 8.00, 7, 2, 3.0,
+        RunSim runSim = new RunSim(0, 10.00, 5, 2, 1.0,
+                1234, 2.0, 3.0, 0.5, 1.0);
+        RunSim runSim2 = new RunSim(0, 8.00, 7, 2, 3.0,
                 13, 0.35, 0.6, 0.6, 0.9);
     }
 }

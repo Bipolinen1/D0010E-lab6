@@ -43,7 +43,9 @@ public class Optimize {
                                                   double pMax) {
           int counter = 0;
           int numberOfRegisters = 0;
+          while(counter < 10){
 
+          }
           return 0;
      }
 }
