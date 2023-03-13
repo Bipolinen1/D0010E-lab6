@@ -24,6 +24,9 @@ public class SupermarketView extends View{
     /**
      * writeStart() prints the starting information of the program, which includes number of registers, maximum number
      * customers, the rate of customers, range of pick time, range of pay time, and the seed.
+     * @param o     the observable object.
+     * @param arg   an argument passed to the {@code notifyObservers}
+     *                 method.
      */
     private void writeStart(Observable o, Object arg) {
         Event event = (Event) arg;
@@ -63,6 +66,9 @@ public class SupermarketView extends View{
      * --- customers that payed, missed customers, number of customers who queued, total queue time, how many are queueing
      * and who is queuing.
      * In addition it also calls updateT() to update time events and calls setLastToPay to store the last paying customer.
+     * @param o     the observable object.
+     * @param arg   an argument passed to the {@code notifyObservers}
+     *                 method.
      */
     private void writeState(Observable o, Object arg) {
         Event event = (Event) arg;
@@ -123,6 +129,7 @@ public class SupermarketView extends View{
     /**
      * writeEnd() prints out the information about the number how customers that payed, that was missed,
      *  that needed to queue, the time spent queueing, and how long a number of registers has been opened.
+     *
      */
     private void writeEnd() {
         System.out.println(String.format(
@@ -158,6 +165,13 @@ public class SupermarketView extends View{
 
         ));
     }
+
+    /**
+     * Updates the Supermarketview
+     * @param o     the observable object.
+     * @param arg   an argument passed to the {@code notifyObservers}
+     *                 method.
+     */
     public void update(Observable o, Object arg) {
         writeState(o, arg);
     }
