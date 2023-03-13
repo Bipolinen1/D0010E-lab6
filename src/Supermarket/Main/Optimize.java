@@ -110,6 +110,18 @@ public class Optimize {
           return bestAmountOfRegisters;
      }
 
+     /**
+      * Calculates the best amount of registers for different seeds
+      * @param openingTime the opening time
+      * @param closingTime the closing time
+      * @param maxCustomers max amount of customers allowed in the store
+      * @param lambda the arrival rate of customers
+      * @param kMin the minimum pay time
+      * @param kMax maximum pay time
+      * @param pMin minimum pick time
+      * @param pMax maximum pick time
+      * @return best amount of registers
+      */
      public static int findMinRegisters(double openingTime, double closingTime, double stopTime, int maxCustomers,
                                         double lambda, double kMin, double kMax, double pMin,
                                         double pMax){
